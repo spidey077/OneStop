@@ -285,6 +285,17 @@
     .product-grid {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+    
+  .about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 1.7rem;
+  }
+
+
   }
   .contact {
   padding: 60px 5%;
@@ -356,6 +367,48 @@ button.submit-btn:hover {
     padding: 20px;
   }
 }
+.about {
+  padding: 60px 8%;
+  background-color: var(--white);
+}
+
+.about-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
 
 </style>
 
@@ -382,7 +435,8 @@ button.submit-btn:hover {
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about">
+ <section id="about" class="about">
+  <div class="about-inner">
     <div class="about-text">
       <h2>About</h2>
       <p>
@@ -394,7 +448,8 @@ button.submit-btn:hover {
     <div class="about-image">
       <img src="/logo.jpg" alt="OS Logo">
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Products Section -->
   <section id="products"  class="products">
@@ -432,7 +487,7 @@ button.submit-btn:hover {
 
 
   <!-- Footer -->
-<footer style="background-color:rgb(243, 230, 49); color:black; padding:40px 5%; font-size:0.95rem;">
+<footer style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
   <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
     
     <!-- Brand Info -->
