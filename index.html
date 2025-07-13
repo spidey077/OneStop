@@ -286,6 +286,77 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
   }
+  .contact {
+  padding: 60px 5%;
+  background-color: rgb(243, 230, 49);
+
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #000;
+}
+
+.contact-subtext {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+input, textarea {
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+button.submit-btn {
+  padding: 14px;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+  background-color: #333;
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 40px 5%;
+  }
+
+  form {
+    padding: 20px;
+  }
+}
+
 </style>
 
 </head>
@@ -332,7 +403,7 @@
       <div class="product">
         <img src="/1.avif" alt="Polo Shirt" />
         <h3>POLO SHIRT</h3>
-        <a href="#">Top Quality Wholesale Polo Shirt for Casual Wear 100% Cotton Shirt</a>
+        <a href="#">Top Quality Wholesale Polo Shirts for Casual Wear </a>
       </div>
       <div class="product">
         <img src="/HandBag.avif" alt="Female Handbag" />
@@ -342,21 +413,23 @@
       <div class="product">
         <img src="/Checkered Shirt.avif" alt="Checkered Shirt" />
         <h3>CHECKERED SHIRT</h3>
-        <a href="#">2025 Wholesale Factory Price Men&#39;s Business Casual Long</a>
+        <a href="#">Top Quality Wholesale Checkered Shirts for Men</a>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </section>
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p class="contact-subtext">Have a question or want to place a custom order? We’d love to hear from you!</p>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</section>
+
 
   <!-- Footer -->
 <footer style="background-color:rgb(243, 230, 49); color:black; padding:40px 5%; font-size:0.95rem;">
