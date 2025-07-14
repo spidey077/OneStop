@@ -44,7 +44,7 @@
   }
 .section {
   opacity: 0;
-  transition: opacity 1.2s ease-out;
+  transition: opacity 1.4s ease-out;
   will-change: opacity;
 }
 
@@ -333,10 +333,64 @@ button.submit-btn:hover {
   }
   
 }
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(253, 249, 30); /* Yellowish background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loader .loader-content {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#loader p {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #000;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 </style>
 
 </head>
 <body>
+  <div id="loader">
+  <div class="loader-content">
+    <div class="spinner"></div>
+    <p>Loading The Store...</p>
+  </div>
+</div>
+
   <nav>
     <div class="logo">OneStop Wholesale</div>
     <ul>
@@ -456,18 +510,22 @@ button.submit-btn:hover {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
-        // Unobserve after showing once
         observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.35 // Start when 35% of the section is visible
+    threshold: 0.35
   });
 
   document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
   });
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.classList.add("hidden");
+  });
 </script>
+
 
 </body>
 </html>
