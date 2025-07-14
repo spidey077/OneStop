@@ -86,23 +86,6 @@
     font-size: 0.95rem;
   }
 
-  nav .button {
-    background-color: var(--black);
-    color: var(--white);
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-
-  .cta-btn {
-    background-color: #000;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
   .hero {
     text-align: center;
     padding: 60px 10% 40px;
@@ -124,7 +107,7 @@
     margin: 10px 0 20px;
   }
 
-  .hero .cta-btn {
+  .cta-btn {
     padding: 10px 20px;
     background-color: var(--black);
     color: var(--white);
@@ -132,10 +115,12 @@
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease,transform 0.3s ease-in;
   }
 
-  .hero .cta-btn:hover {
+  .cta-btn:hover {
     background-color: #222;
+    transform: scale(1.1);
   }
   .products {
     padding: 40px 5%;
@@ -196,20 +181,7 @@
     font-size: 1rem;
   }
 
-  button.submit-btn {
-    padding: 12px;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  button.submit-btn:hover {
-    background-color: #333;
-  }
-
+ 
   footer {
     text-align: center;
     padding: 20px 5%;
@@ -471,6 +443,7 @@ button.submit-btn:hover {
   </div>
 </footer>
 </section>
+
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -481,12 +454,13 @@ button.submit-btn:hover {
       }
     });
   }, {
-    threshold: 0.35 
+    threshold: 0.35 // Start when 35% of the section is visible
   });
 
   document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
   });
 </script>
+
 </body>
 </html>
