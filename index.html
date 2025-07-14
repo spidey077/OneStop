@@ -42,6 +42,18 @@
     color: var(--black);
     line-height: 1.6;
   }
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  will-change: opacity, transform;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
   nav {
     display: flex;
@@ -355,16 +367,17 @@ button.submit-btn:hover {
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#contact">Contact</a></li>
+            <li><a href="#footer">Links</a></li>
     </ul>
    <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
   </nav>
-  <section id="hero" class="hero">
+  <section id="hero" class="hero section">
     <h1 >OneStop Wholesale</h1>
     <p>Fashion that shapes your choice</p>
     <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
   </section>
 
- <section id="about" class="about">
+ <section id="about" class="about section">
   <div class="about-inner">
     <div class="about-text">
       <h2>About</h2>
@@ -381,7 +394,7 @@ button.submit-btn:hover {
 </section>
 
 
-  <section id="products"  class="products">
+  <section id="products"  class="products section">
     <h2>Products</h2>
     <div class="product-grid">
       <div class="product">
@@ -403,7 +416,7 @@ button.submit-btn:hover {
   </section>
 
  
-<section id="contact" class="contact">
+<section id="contact" class="contact section">
   <h2>Contact Us</h2>
 
   <form>
@@ -416,7 +429,7 @@ button.submit-btn:hover {
 
 
 
-<footer style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
+<footer class="footer" id="footer" style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
   <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
     
  
@@ -437,8 +450,6 @@ button.submit-btn:hover {
         <li><a href="#contact" style="color:#000; text-decoration:none;">Contact</a></li>
       </ul>
     </div>
-
- 
     <div style="flex:1; min-width:150px; text-align: center;">
       <h4 style="margin-bottom:10px;">Follow Us</h4>
       <div class="social-icons" style="display:flex; justify-content:center; gap:15px; align-items:center; margin-top:10px; flex-wrap: wrap;">
@@ -461,7 +472,23 @@ button.submit-btn:hover {
     &copy; 2025 OneStop Wholesale. All rights reserved.
   </div>
 </footer>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        // Unobserve after showing once
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.35 // Start when 35% of the section is visible
+  });
 
+  document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
 
 </body>
 </html>
