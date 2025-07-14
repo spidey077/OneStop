@@ -282,7 +282,11 @@ button.submit-btn:hover {
     nav ul {
       display: none;
     }
-
+ .about-image img {
+    max-width: 60%;
+    width: 60%;
+    align-items: center;
+  }
     nav .button {
       font-size: 0.85rem;
       padding: 5px 10px;
@@ -299,10 +303,15 @@ button.submit-btn:hover {
     .product-grid {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+     .contact {
+    padding: 40px 5%;
+    margin: 55px;
+  }
   }
 @media (max-width: 600px) {
   .contact {
     padding: 40px 5%;
+    margin: 35px;
   }
 
   form {
@@ -310,20 +319,34 @@ button.submit-btn:hover {
   }
   .product{
     opacity: 1;
+    width: 70%;
+    align-items: center;
+    margin-left: 40px;
+  }
+  .about-image img {
+    max-width: 60%;
+    width: 60%;
+    align-items: center;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   .about-text p{
     font-size: 0.9rem;
   }
   .about-image img {
-    max-width: 100%;
-    width: 70%;
+    max-width: 50%;
+    width: 50%;
     align-items: center;
   }
   .contact,.products{
     padding-top: 80px;
+  }
+  .product{
+    width: 70%;
+    align-items: center;
+    text-align: center;
+    margin: auto;
   }
 }
 #loader {
