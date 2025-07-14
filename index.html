@@ -1,555 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OneStop Wholesale - Affordable Fashion & Accessories</title>
-  <meta name="description" content="OneStop Wholesale offers premium-quality polo shirts, handbags, and t-shirts at unbeatable wholesale prices. Fashion that shapes your choice." />
-  <meta name="keywords" content="Wholesale fashion, polo shirts, handbags, OneStop, wholesale t-shirts, Pakistan fashion wholesale" />
-  <meta name="author" content="OneStop Wholesale" />
-  <meta property="og:title" content="OneStop Wholesale - Fashion that shapes your choice" />
-  <meta property="og:description" content="Discover high-quality wholesale fashion products including shirts, handbags & more at OneStop Wholesale." />
-  <meta property="og:image" content="/logo.jpg" />
-  <meta property="og:url" content="https://yourwebsite.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" href="/logo.jpg" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="canonical" href="https://yourwebsite.com/" />
-  <meta http-equiv="Content-Language" content="en" />
-  <style>
-  :root {
-    --main-bg: rgb(253, 249, 30);
-    --black: #000;
-    --white: #fff;
-    --gray: #666;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  #hero {
-    height: 100vh;
-  }
+    <title>Muhammad Imdadullah Chishti | Front-End Developer | Web Designer</title>
+    <meta name="description"
+        content="Discover the second portfolio of Muhammad Imdadullah, a skilled front-end developer crafting modern, responsive, and SEO-friendly websites.">
+    <meta name="author" content="Muhammad Imdadullah Chishti">
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--main-bg);
-    color: var(--black);
-    line-height: 1.6;
-  }
-.section {
-  opacity: 0;
-  transition: opacity 1.4s ease-out;
-  will-change: opacity;
-}
-
-.section.show {
-  opacity: 1;
-}
-
-
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 5%;
-    background-color: var(--main-bg);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  nav .logo {
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin-left: -50px;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #000;
-  }
-
-  nav ul li {
-    cursor: pointer;
-    font-size: 0.95rem;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 60px 10% 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 6vw, 70px);
-    margin-top: -150px;
-    line-height: 1.2;
-  }
-
-  .hero p {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    margin: 10px 0 20px;
-  }
-
-  .cta-btn {
-    padding: 10px 20px;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease,transform 0.3s ease-in;
-  }
-
-  .cta-btn:hover {
-    background-color: #222;
-    transform: scale(1.1);
-  }
-  .products {
-    padding: 70px 5%;
-  }
-
-  .products h2 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  .product {
-    background-color: var(--white);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
-    text-align: center;
-    opacity: 0.78;
-    transition: transform 0.3s ease,opacity 0.4s ease;
-  }
-
-  .product:hover {
-    transform: translateY(-4px);
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  .product img {
-    max-width: 60%;
-    height: auto;
-    border-radius: 6px;
-  }
-
-  .product h3 {
-    margin-top: 12px;
-    font-size: 1rem;
-  }
-
-  .product a {
-    display: block;
-    margin-top: 6px;
-    font-size: 0.9rem;
-    color: var(--gray);
-    text-decoration: none;
-  }
-
-  .product a:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px 5%;
-    background-color: #000;
-    color: #fff;
-    font-size: 0.9rem;
-  }
-  .contact {
-  padding: 120px 5%;
-  background-color: rgb(253, 249, 30);
-
-}
-.contact h2 {
-  padding-bottom: 20px;
-  font-size: 2rem;
-  margin-bottom: 10px;
-  text-align: center;
-  color: #000;
-}
-form {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-}
-
-input, textarea {
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  transition: border 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--black);
-}
-
-button.submit-btn {
-  padding: 14px;
-  background-color: var(--black);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button.submit-btn:hover {
-  background-color: #333;
-}
-.about {
-  padding: 120px 8%;
-  background-color: var(--white);
-}
-
-.about-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.about-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.about-text h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.about-text p {
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.about-image {
-  flex: 1;
-  min-width: 270px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-image img {
-  max-width: 300px;
-  width: 100%;
-  border-radius:50%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
- @media (max-width: 768px) {
-    nav ul {
-      display: none;
-    }
- .about-image img {
-    max-width: 60%;
-    width: 60%;
-    align-items: center;
-  }
-    nav .button {
-      font-size: 0.85rem;
-      padding: 5px 10px;
-    }
-
-    .about, .products, .contact {
-      padding: 20px 5%;
-    }
-
-    .hero h1 {
-    margin-top: -150px;
-    }
-
-    .product-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-     .contact {
-    padding: 40px 5%;
-    margin: 55px;
-  }
-  }
-@media (max-width: 600px) {
-  .contact {
-    padding: 40px 5%;
-    margin: 35px;
-  }
-
-  form {
-    padding: 20px;
-  }
-  .product{
-    opacity: 1;
-    width: 70%;
-    align-items: center;
-    margin-left: 40px;
-  }
-  .about-image img {
-    max-width: 60%;
-    width: 60%;
-    align-items: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-text p{
-    font-size: 0.9rem;
-  }
-  .about-image img {
-    max-width: 50%;
-    width: 50%;
-    align-items: center;
-  }
-  .contact,.products{
-    padding-top: 80px;
-  }
-  .product{
-    width: 70%;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-  }
-}
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(253, 249, 30);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
-}
-
-#loader .loader-content {
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-#loader p {
-  margin-top: 16px;
-  font-size: 1.2rem;
-  color: #000;
-  letter-spacing: 1px;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #000;
-  border-top: 4px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: auto;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-</style>
+    <meta property="og:title"
+        content="Muhammad Imdadullah Chishti | HTML | CSS | JavaScript | Bootstrap | Front-End Developer & Web Designer">
+    <meta property="og:description"
+        content="Explore my second web development portfolio powered by Bootstrap, featuring my projects, a clean UI/UX, and responsive website.">
+    <meta property="og:url" content="https://imdadullahbootstrap.vercel.app/">
+    <meta property="og:type" content="website">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="icon" type="image/webp" href="/-GcDIqH0TDWL8TKQxRWoZg.webp">
+    <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
-  <div id="loader">
-  <div class="loader-content">
-    <div class="spinner"></div>
-    <p>Loading The Store...</p>
-  </div>
-</div>
-
-  <nav>
-    <div class="logo">OneStop Wholesale</div>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#contact">Contact</a></li>
-            <li><a href="#footer">Links</a></li>
-    </ul>
-   <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
-  </nav>
-  <section id="hero" class="hero section">
-    <h1 >OneStop Wholesale</h1>
-    <p>Fashion that shapes your choice</p>
-    <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
-  </section>
-
- <section id="about" class="about section">
-  <div class="about-inner">
-    <div class="about-text">
-      <h2>About</h2>
-      <p>
-        Welcome to our brand – your one-stop destination for premium-quality polo shirts, stylish t-shirts, and elegant handbags for women. We are a dedicated company committed to offering fashionable, comfortable, and affordable apparel and accessories that reflect both classic and modern styles.
-        <br><br>
-        Our collection is designed to suit every occasion, whether you're dressing up for a day out or keeping it casual. With a focus on quality, customer satisfaction, and trend-inspired designs, we aim to make you look good and feel confident every day.
-      </p>
+    <div class="cursor"></div>
+    <div id="loading-screen">
+        <div class="text-center">
+            <div class="spinner-border " role="status" style="width: 4rem; height: 4rem;"></div>
+        </div>
     </div>
-    <div class="about-image" >
-      <img src="/logo.jpg" alt="OS Logo">
+    <div id="content">
+        <nav class="navbar navbar-expand-md fixed-top" style="background-color: rgb(144, 235, 235); padding: 20px;">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <svg width="50" height="50" viewBox="0 0 796 669" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M49 217C32.6366 235.349 17.5406 307.829 30 360H4.5V545.5L150.5 528V349C153.981 293.362 168.798 279.004 212.5 276C259.298 294.528 260.675 317.225 258.5 360L225 349V507.5L368 452V325C377.431 290.794 381.531 270.706 442.5 276C474.505 296.688 482.615 314.988 479 360L442.5 349V422L609 360L601 276C574.032 214.645 545.213 186.362 464.5 149C390.12 145.48 356.509 155.89 309 193.5C286.162 172.348 268.805 162.212 225 149C151.607 149.131 112.352 159.942 49 217Z"
+                            stroke="black" />
+                        <path d="M1 579V668H145.5V560L1 579Z" stroke="black" />
+                        <path d="M223.5 539.5V668H364.5V487L223.5 539.5Z" stroke="black" />
+                        <path d="M439.5 458.5V666.5H587L577.5 409L439.5 458.5Z" stroke="black" />
+                        <path d="M652 390L661.5 666.5H795V220.5C752.003 303.962 721.786 342.544 652 390Z"
+                            stroke="black" />
+                        <path
+                            d="M669.5 250.5L661.5 328C744.869 281.844 767.504 240.5 795 158.5C755.22 199.042 727.995 219.309 669.5 250.5Z"
+                            stroke="black" />
+                        <path
+                            d="M661.5 41C655.722 74.1821 656.184 92.9655 688.5 128C740.599 142.892 762.861 130.808 795 87C798.335 41.9342 784.608 26.4536 753.5 2.99995C708.191 -3.76491 687.872 4.14697 661.5 41Z"
+                            stroke="black" />
+                    </svg>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto fw-bold section reveal hover-target">
+                        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="home" style="padding-top: 300px; height: 1000px; background-color: rgb(144, 235, 235);">
+            <header class="container-fluid text-black text-center py-5">
+
+                <h1 class="display-2 fw-bold text-uppercase animated-title">
+                    <span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e</span>
+                    <span>t</span><span>o</span>
+                    <span>m</span><span>y</span>
+                    <span>P</span><span>o</span><span>r</span><span>t</span><span>f</span><span>o</span><span>l</span><span>i</span><span>o</span>
+                </h1>
+
+                <p class="lead fw-medium mt-4 mb-4">
+                    Front-End Developer | Web Designer | On Page SEO Expert
+                </p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-3">
+                    <a href="https://www.upwork.com/services/product/development-it-a-responsive-and-modern-website-1900796097187697138?ref=project_share"
+                        target="_blank" class="btn btn-dark btn-lg px-4 py-2 shadow-lg section reveal hover-target"
+                        style="border-radius: 10px; font-weight: 600;">
+                        Hire Me
+                    </a>
+
+                    <a href="/Imdadullah Resume.pdf" target="_blank" download
+                        class="btn btn-custom-outline btn-lg px-4 py-2 shadow-lg section reveal hover-target"
+                        style="border-radius: 10px; font-weight: 600;">
+                        Download CV
+                    </a>
+                </div>
+                <div class="row text-center"
+                    style="display: flex; justify-content: center; align-items: center; padding-top: 50px;margin-top: 170px;">
+                    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                        type="module"></script>
+                    <dotlottie-player id="lottie-animation1" class="hover-target"
+                        src="https://lottie.host/91e26769-db68-4e8c-8cc1-3066a917ab96/rWq46X2g02.lottie"
+                        background="transparent" speed="1" style="width: 100px; height: 100px; cursor: pointer;" loop
+                        autoplay></dotlottie-player>
+                </div>
+
+
+            </header>
+        </div>
+        <section id="about" class="py-5  text-black">
+            <div class="container" style="padding-top: 30px;padding-bottom: 20px;">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 text-center text-lg-start">
+                        <h2 class="display-4 fw-bold section reveal" style="font-family: 'Poppins', sans-serif;">About
+                            Me</h2>
+                        <p class="lead mt-3 section reveal"
+                            style="font-size: 1.1rem; font-family: 'Roboto', sans-serif;">
+                            I am Muhammad Imdadullah, a CS student and front-end web developer. I am passionate about
+                            creating responsive and visually appealing websites. With expertise in HTML, CSS,
+                            JavaScript, and Bootstrap, I build seamless and user-friendly web experiences. I
+                            continuously refine my skills to stay updated with the latest web technologies, ensuring
+                            high-quality and innovative solutions.
+                            Let’s build something great together!
+                        </p>
+                        <a href="https://www.upwork.com/services/product/development-it-a-responsive-and-modern-website-1900796097187697138?ref=project_share"
+                            target="_blank"
+                            class="btn btn-dark btn-lg mt-3 px-4 py-2 shadow-lg fw-semibold section reveal hover-target"
+                            style="border-radius: 10px;">
+                            Learn More
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 text-center mt-4 mt-lg-0 section reveal">
+                        <img src="/IMG-20241113-WA0023.jpg" loading="lazy" alt="About Us Image"
+                            class="img-fluid shadow-lg" style="max-width: 70%; height: auto;border-radius:5%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="py-5" style="background-color: rgb(144, 235, 235);">
+            <div class="container text-center" style="padding:50px;">
+                <h2 class="display-4 fw-bold text-black" style="font-family: 'Poppins', sans-serif;">My Projects</h2>
+                <p class="lead text-black mt-2" style="font-size: 1.2rem; font-family: 'Roboto', sans-serif;">
+                    Explore some of my recent projects showcasing innovation and creativity.
+                </p>
+                <div class="row mt-5">
+                    <div class="col-md-4 col-lg-4 mb-5 section reveal">
+                        <div class="card h-100 shadow-lg border-1 hover-target"
+                            style="transition: transform 0.3s ease;">
+                            <img src="/1.png" class="card-img-top" loading="lazy" alt="Project 1">
+                            <div class="card-body text-black">
+                                <h5 class="fw-bold py-3">Project 1</h5>
+                                <a href="https://onestopwholesale.vercel.app/" target="_blank"
+                                    class="btn btn-dark btn-sm hover-target">
+                                    View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 mb-5 section reveal">
+                        <div class="card h-100 shadow-lg border-0 hover-target"
+                            style="transition: transform 0.3s ease;">
+                            <img src="/3.png" class="card-img-top" loading="lazy" alt="Project 2">
+                            <div class="card-body text-black">
+                                <h5 class="fw-bold py-3">Project 2</h5>
+                                <a href="https://spidey077.github.io/RANDOM-QUOTE-GENERATOR/" target="_blank"
+                                    class="btn btn-dark btn-sm hover-target">
+                                    View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 mb-5 section reveal">
+                        <div class="card h-100 shadow-lg border-0 hover-target"
+                            style="transition: transform 0.3s ease;">
+                            <img src="/2.png" class="card-img-top" loading="lazy" alt="Project 3">
+                            <div class="card-body text-black">
+                                <h5 class="fw-bold py-3">Project 3</h5>
+                                <a href="https://imdadullah.netlify.app/" target="_blank"
+                                    class="btn btn-dark btn-sm hover-target">
+                                    View Project
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-5" style="background-color: #f8f9fa;">
+            <div class="container text-center" style="padding:50px;">
+                <h2 class="display-4 fw-bold text-dark" style="font-family: 'Poppins', sans-serif;">Services</h2>
+                <p class="lead text-dark mt-2 mx-auto"
+                    style="max-width: 600px; font-size: 1.2rem; font-family: 'Roboto', sans-serif;">
+                    Check out the services I offer to help grow your online presence.
+                </p>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-5 col-lg-4 mb-4 section reveal">
+                        <div class="card h-100 shadow-lg border-0 hover-target"
+                            style="transition: transform 0.3s ease;">
+                            <div class="card-body text-dark px-4 py-5 d-flex flex-column justify-content-center">
+                                <h5 class="fw-bold mb-3 text-start">Portfolio Website Creation</h5>
+                                <p class="text-start" style="font-size: 1rem; line-height: 1.5;">
+                                    Create a professional and personalized portfolio website to showcase your work and
+                                    skills.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-4 mb-4 section reveal">
+                        <div class="card h-100 shadow-lg border-0 hover-target"
+                            style="transition: transform 0.3s ease;">
+                            <div class="card-body text-dark px-4 py-5 d-flex flex-column justify-content-center">
+                                <h5 class="fw-bold mb-3 text-start">Website Design</h5>
+                                <p class="text-start" style="font-size: 1rem; line-height: 1.5;">
+                                    Design modern, responsive, and user-friendly websites tailored to your brand
+                                    identity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-4 mb-4 section reveal">
+                        <div class="card h-100 shadow-lg border-0 hover-target"
+                            style="transition: transform 0.3s ease;">
+                            <div class="card-body text-dark px-4 py-5 d-flex flex-column justify-content-center">
+                                <h5 class="fw-bold mb-3 text-start">Custom FAQ Chatbot Integration</h5>
+                                <p class="text-start" style="font-size: 1rem; line-height: 1.5;">
+                                    Integrate intelligent FAQ chatbots into your website to enhance customer support and
+                                    engagement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      <section id="skills" class="py-5" style="background-color: rgb(144, 235, 235);width: 100%;">
+    <div class="container text-center" style="padding: 50px;">
+        <h2 class="display-4 fw-bold text-dark" style="font-family: 'Poppins', sans-serif;">Skills</h2>
+        <p class="lead text-dark mt-2 mx-auto"
+            style="max-width: 600px; font-size: 1.2rem; font-family: 'Roboto', sans-serif;">
+            My technical toolkit includes a variety of modern web technologies and design tools.
+        </p>
+
+        <div class="mt-5 slider d-flex align-items-center justify-content-center gap-4 flex-wrap section reveal">
+            <img src="/html5-brands.svg" alt="HTML5" width="60" height="60" title="HTML5">
+            <img src="/css3-alt-brands.svg" alt="CSS3" width="60" height="60" title="CSS3">
+            <img src="/js-brands.svg" alt="JavaScript" width="60" height="60" title="JavaScript">
+            <img src="/bootstrap-brands.svg" alt="Bootstrap" width="60" height="60" title="Bootstrap">
+            <img src="github-brands.svg" alt="GitHub" width="60" height="60" title="GitHub">
+            <img src="/java-brands.svg" alt="Java" width="60" height="60" title="Java">
+            <img src="/figma-brands.svg" alt="Figma" width="60" height="60" title="Figma">
+            <img src="/icons8-photoshop.svg" alt="Photoshop" width="60" height="60" title="Photoshop">
+        </div>
+    </div>
+</section>
+
+  <section id="testimonial" class="py-5" style="background-color: rgb(255, 255, 255);">
+  <div class="container text-center" style="padding: 50px;">
+    <h2 class="display-4 fw-bold text-dark" style="font-family: 'Poppins', sans-serif;">Testimonial</h2>
+    <p class="lead text-dark mt-2 mx-auto"
+       style="max-width: 600px; font-size: 1.2rem; font-family: 'Roboto', sans-serif;">
+       Feedback from satisfied clients who trusted me.
+    </p>
+
+    <div class="card mx-auto mt-4 shadow" style="max-width: 600px; border: none;">
+      <div class="card-body text-center">
+        <img src="/logo.jpg" alt="Client Logo" class="rounded-circle mb-3" width="80" height="80" style="object-fit: cover;">
+        <h5 class="card-title fw-bold text-dark mb-2">OneStop Wholesale</h5>
+        <p class="card-text text-dark" style="font-size: 1rem;">
+          Working with Imdadullah Chishti was a seamless experience. The site delivered was fast, clean, responsive, and communication was excellent throughout. Highly recommended!
+        </p>
+        <div class="text-warning fw-semibold mt-3" style="font-size: 1.1rem;">
+          ★★★★☆ 4.3/5
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
-  <section id="products"  class="products section">
-    <h2>Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="/1.avif" alt="Polo Shirt" />
-        <h3>POLO SHIRT</h3>
-        <a href="https://wa.me/3151073322">Top Quality Wholesale Polo Shirts for Casual Wear </a>
-        <h4>950 RS</h4>
-      </div>
-      <div class="product">
-        <img src="/HandBag.avif" alt="Female Handbag" />
-        <h3>FEMALE HANDBAG</h3>
-        <a href="https://wa.me/3151073322">Trending Wholesale Handbags For Women</a>
-        <h4>2800 RS</h4>
-
-      </div>
-      <div class="product">
-        <img src="/Checkered Shirt.avif" alt="Checkered Shirt" />
-        <h3>CHECKERED SHIRT</h3>
-        <a href="https://wa.me/3151073322">Top Quality Wholesale Checkered Shirts for Men</a>
-        <h4>3000 RS</h4>
-      </div>
+        <section id="contact" style="background-color: rgb(144, 235, 235); width: 100%;">
+  <div class="container py-5">
+    <div class="text-center mb-5 section reveal" style="padding-top: 100px; padding-bottom: 30px;">
+      <h2 class="display-4 fw-bold text-black">Contact Me</h2>
+      <p class="lead">I will love to hear from you! Fill out the form below.</p>
     </div>
-  </section>
-
- 
-<section id="contact" class="contact section">
-  <h2>Contact Us</h2>
-
-  <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-  <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-  <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
-  <button type="submit" class="submit-btn">Send Message</button>
-</form>
-
-
-</section>
-
-
-<section class="footer section">
-  <footer  id="footer" style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
-  <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
-    
- 
-    <div style="flex:1; min-width:200px;">
-      <h3 style="font-size:1.2rem; margin-bottom:10px;">OneStop Wholesale</h3>
-      <p style="color:#000;">
-        Your one-stop destination for quality wholesale apparel & fashion accessories. Trendy, affordable, and reliable – all in one place.
-      </p>
-    </div>
-
-  
-    <div style="flex:1; min-width:150px;">
-      <h4 style="margin-bottom:10px;">Site Links</h4>
-      <ul style="list-style:none; padding:0; line-height:1.8;">
-        <li><a href="#hero" style="color:#000; text-decoration:none;">Home</a></li>
-        <li><a href="#about" style="color:#000; text-decoration:none;">About</a></li>
-        <li><a href="#products" style="color:#000; text-decoration:none;">Products</a></li>
-        <li><a href="#contact" style="color:#000; text-decoration:none;">Contact</a></li>
-      </ul>
-    </div>
-    <div style="flex:1; min-width:150px; text-align: center;">
-      <h4 style="margin-bottom:10px;">Follow Us</h4>
-      <div class="social-icons" style="display:flex; justify-content:center; gap:15px; align-items:center; margin-top:10px; flex-wrap: wrap;">
-        <a href="https://www.facebook.com/profile.php?id=100067395392274" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:24px;" />
-        </a>
-    <a href="https://www.instagram.com/onestopshoopp?fbclid=IwY2xjawLgL01leHRuA2FlbQIxMABicmlkETEwVEtpUGZuNWdPaEFGUXJoAR6EZxQnFQu7r3DYRJzMtd4hvR" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:24px;" />
-        </a>
-        <a href="https://www.tiktok.com/@onestopshoopp?is_from_webapp=1&sender_device=pc" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" style="width:24px;" />
-        </a>
-        <a href="https://wa.me/3151073322" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width:24px;" />
-        </a>
+    <div class="row justify-content-center section reveal">
+      <div class="col-md-8">
+        <form action="https://getform.io/f/bwnqylra" method="POST">
+          <div class="p-4 bg-light" style="padding: 100px;border-radius: 10px;">
+            <div class="mb-4">
+              <label class="form-label fw-bold" for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold" for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-bold" for="message">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="4" placeholder="Type Here" required></textarea>
+            </div>
+            <div class="text-center section reveal">
+              <button type="submit" class="btn btn-dark px-4 py-2">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <div style="width: 100%; text-align:center; margin-top:30px; border-top:1px solid #333; padding-top:15px; color:#333;">
-    &copy; 2025 OneStop Wholesale – Fashion that shapes your choice.
-  </div>
-</footer>
 </section>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.35
-  });
 
-  document.querySelectorAll('.section').forEach(section => {
-    observer.observe(section);
-  });
-  window.addEventListener("load", function () {
-    const loader = document.getElementById("loader");
-    loader.classList.add("hidden");
-  });
-</script>
 
+        <div id="chatbot-wrapper">
+            <div class="chatbot-button" onclick="toggleChatbot()">💬</div>
+
+            <div class="container" id="chatbotContainer">
+                <h2>FAQ Chatbot</h2>
+                <textarea id="question" placeholder="Type your question here..."></textarea><br>
+                <button onclick="askOpenAI()">Ask</button>
+                <div id="response"></div>
+            </div>
+        </div>
+        <footer id="links" class="text-black py-4 " style="background-color: rgb(255, 255, 255);">
+            <div class="container text-center " style="padding-top:50px ;padding-bottom:20px;">
+                <div class="row py-1 ">
+                    <div class="col-md-6 mb-3 py-1 ">
+                        <h5 class="fw-bold mb-3 ">Quick Links</h5>
+                        <a href="#home" class="text-black text-decoration-none px-4 section reveal">Home</a>
+                        <a href="#projects" class="text-black text-decoration-none px-4 section reveal">Projects</a>
+                        <a href="#about" class="text-black text-decoration-none px-4 section reveal">About</a>
+                        <a href="#contact" class="text-black text-decoration-none px-4 section reveal">Contact</a>
+                    </div>
+                    <div class="col-md-6 mb-0 py-1 ">
+                        <h5 class=" fw-bold mb-3 me-2 ">Contact Me</h5>
+                        <a href="https://github.com/spidey077" target="_blank" class=" ms-1 text-dark section reveal"><i
+                                class="fab fa-github fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/imdadullah-chishti-888340326/" target="_blank"
+                            class="ms-2 text-dark section reveal"><i class="fab fa-linkedin fa-lg"></i></a>
+
+                        <a href="https://www.upwork.com/freelancers/~01c681e6869afdb25b" target="_blank"
+                            class="ms-2 text-dark section reveal">
+                            <i class="fa-brands fa-upwork fa-lg"></i></a>
+
+                    </div>
+
+                </div>
+                <div class="row justify-content-end" style="display: flex;">
+                    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                        type="module"></script>
+                    <dotlottie-player class="hover-target" id="lottie-animation"
+                        src="https://lottie.host/da8ba66a-16fe-4772-ae7e-0c4065049aa8/Q8HIcqpa0A.lottie"
+                        background="transparent" speed="1" style="width: 50px; height: 50px; cursor: pointer;" loop
+                        autoplay></dotlottie-player>
+                </div>
+                <hr class="border-dark ">
+                <p class="small fw-bold mb-0 ">&copy; 2025 Imdadullah. All Rights Reserved.</p>
+
+            </div>
+
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="script.js"></script>
 
 </body>
+
 </html>
