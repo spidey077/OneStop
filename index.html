@@ -44,14 +44,12 @@
   }
 .section {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-  will-change: opacity, transform;
+  transition: opacity 1.4s ease-out;
+  will-change: opacity;
 }
 
 .section.show {
   opacity: 1;
-  transform: translateY(0);
 }
 
 
@@ -428,8 +426,8 @@ button.submit-btn:hover {
 </section>
 
 
-
-<footer class="footer" id="footer" style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
+<section class="footer section">
+  <footer  id="footer" style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
   <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
     
  
@@ -472,6 +470,7 @@ button.submit-btn:hover {
     &copy; 2025 OneStop Wholesale. All rights reserved.
   </div>
 </footer>
+</section>
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -482,13 +481,12 @@ button.submit-btn:hover {
       }
     });
   }, {
-    threshold: 0.35 // Start when 35% of the section is visible
+    threshold: 0.35 
   });
 
   document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
   });
 </script>
-
 </body>
 </html>
