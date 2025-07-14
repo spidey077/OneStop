@@ -450,17 +450,15 @@ button.submit-btn:hover {
     </div>
   </section>
 
- 
-<section id="contact" class="contact section">
-  <h2>Contact Us</h2>
+<form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+  <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
+  <button type="submit" class="submit-btn">Send Message</button>
+</form>
 
-  <form>
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit" class="submit-btn">Send Message</button>
-  </form>
-</section>
 
 
 <section class="footer section">
