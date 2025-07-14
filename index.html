@@ -144,11 +144,14 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.08);
     text-align: center;
-    transition: transform 0.3s ease;
+    opacity: 0.78;
+    transition: transform 0.3s ease,opacity 0.4s ease;
   }
 
   .product:hover {
     transform: translateY(-4px);
+    opacity: 1;
+    transform: scale(1.05);
   }
 
   .product img {
@@ -273,6 +276,9 @@ button.submit-btn:hover {
   form {
     padding: 20px;
   }
+  .product{
+    opacity: 1;
+  }
 }
 .about {
   padding: 120px 8%;
@@ -325,6 +331,7 @@ button.submit-btn:hover {
     width: 70%;
     align-items: center;
   }
+  
 }
 </style>
 
