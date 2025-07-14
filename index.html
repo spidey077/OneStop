@@ -1,438 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OneStop Wholesale - Affordable Fashion & Accessories</title>
-  <meta name="description" content="OneStop Wholesale offers premium-quality polo shirts, handbags, and t-shirts at unbeatable wholesale prices. Fashion that shapes your choice." />
-  <meta name="keywords" content="Wholesale fashion, polo shirts, handbags, OneStop, wholesale t-shirts, Pakistan fashion wholesale" />
+  <meta name="description"
+    content="OneStop Wholesale offers premium-quality polo shirts, handbags, and t-shirts at unbeatable wholesale prices. Fashion that shapes your choice." />
+  <meta name="keywords"
+    content="Wholesale fashion, polo shirts, handbags, OneStop, wholesale t-shirts, Pakistan fashion wholesale" />
   <meta name="author" content="OneStop Wholesale" />
   <meta property="og:title" content="OneStop Wholesale - Fashion that shapes your choice" />
-  <meta property="og:description" content="Discover high-quality wholesale fashion products including shirts, handbags & more at OneStop Wholesale." />
+  <meta property="og:description"
+    content="Discover high-quality wholesale fashion products including shirts, handbags & more at OneStop Wholesale." />
   <meta property="og:image" content="/logo.jpg" />
   <meta property="og:url" content="https://yourwebsite.com" />
   <meta name="twitter:card" content="summary_large_image" />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" href="/logo.jpg" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="canonical" href="https://yourwebsite.com/" />
   <meta http-equiv="Content-Language" content="en" />
   <style>
-  :root {
-    --main-bg: rgb(253, 249, 30);
-    --black: #000;
-    --white: #fff;
-    --gray: #666;
-  }
+    :root {
+      --main-bg: rgb(253, 249, 30);
+      --black: #000;
+      --white: #fff;
+      --gray: #666;
+    }
 
-  #hero {
-    height: 100vh;
-  }
+    #hero {
+      height: 100vh;
+    }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--main-bg);
-    color: var(--black);
-    line-height: 1.6;
-  }
-.section {
-  opacity: 0;
-  transition: opacity 1.4s ease-out;
-  will-change: opacity;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--black);
+      line-height: 1.6;
+    }
 
-.section.show {
-  opacity: 1;
-}
+    .section {
+      opacity: 0;
+      transition: opacity 1.4s ease-out;
+      will-change: opacity;
+    }
+
+    .section.show {
+      opacity: 1;
+    }
 
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 5%;
-    background-color: var(--main-bg);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background-color: var(--main-bg);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-  nav .logo {
-    font-weight: 700;
-    font-size: 1rem;
-  }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1rem;
+    }
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin-left: -50px;
-  }
-
- nav ul li a {
-  position: relative;
-  text-decoration: none;
-  color: #2c2a2a;
-  font-weight: 500;
-  padding: 6px 4px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-}
-
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-  transition: transform 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #000;
-  transform: scale(1.05);
-}
-
-nav ul li a:hover::after {
-  transform: translateX(-50%) scaleX(1);
-}
-
-  nav ul li {
-    cursor: pointer;
-    font-size: 0.95rem;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 60px 10% 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 6vw, 70px);
-    margin-top: -150px;
-    line-height: 1.2;
-  }
-
-  .hero p {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    margin: 10px 0 20px;
-  }
-
-  .cta-btn {
-    padding: 10px 20px;
-    background-color: var(--black);
-    color: var(--white);
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease,transform 0.3s ease-in;
-  }
-
-  .cta-btn:hover {
-    background-color: #222;
-    transform: scale(1.1);
-  }
-  .products {
-    padding: 70px 5%;
-  }
-
-  .products h2 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  .product {
-    background-color: var(--white);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
-    text-align: center;
-    opacity: 0.78;
-    transition: transform 0.3s ease,opacity 0.4s ease;
-  }
-
-  .product:hover {
-    transform: translateY(-4px);
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  .product img {
-    max-width: 60%;
-    height: auto;
-    border-radius: 6px;
-  }
-
-  .product h3 {
-    margin-top: 12px;
-    font-size: 1rem;
-  }
-
-  .product a {
-    display: block;
-    margin-top: 6px;
-    font-size: 0.9rem;
-    color: var(--gray);
-    text-decoration: none;
-  }
-
-  .product a:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px 5%;
-    background-color: #000;
-    color: #fff;
-    font-size: 0.9rem;
-  }
-  .contact {
-  padding: 120px 5%;
-  background-color: rgb(253, 249, 30);
-
-}
-.contact h2 {
-  padding-bottom: 20px;
-  font-size: 2rem;
-  margin-bottom: 10px;
-  text-align: center;
-  color: #000;
-}
-form {
-  max-width: 600px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-}
-
-input, textarea {
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  transition: border 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--black);
-}
-
-button.submit-btn {
-  padding: 14px;
-  background-color: var(--black);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button.submit-btn:hover {
-  background-color: #333;
-}
-.about {
-  padding: 120px 8%;
-  background-color: var(--white);
-}
-
-.about-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.about-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.about-text h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.about-text p {
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.about-image {
-  flex: 1;
-  min-width: 270px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-image img {
-  max-width: 300px;
-  width: 100%;
-  border-radius:50%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
- @media (max-width: 768px) {
     nav ul {
-      display: none;
-    }
- .about-image img {
-    max-width: 60%;
-    width: 60%;
-    align-items: center;
-  }
-    nav .button {
-      font-size: 0.85rem;
-      padding: 5px 10px;
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin-left: -50px;
     }
 
-    .about, .products, .contact {
-      padding: 20px 5%;
+    nav ul li a {
+      position: relative;
+      text-decoration: none;
+      color: #2c2a2a;
+      font-weight: 500;
+      padding: 6px 4px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transition: transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    nav ul li a:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 10% 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .hero h1 {
-    margin-top: -150px;
+      font-size: clamp(2rem, 6vw, 70px);
+      margin-top: -150px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      margin: 10px 0 20px;
+    }
+
+    .cta-btn {
+      padding: 10px 20px;
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease-in;
+    }
+
+    .cta-btn:hover {
+      background-color: #222;
+      transform: scale(1.1);
+    }
+
+    .products {
+      padding: 70px 5%;
+    }
+
+    .products h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-align: center;
     }
 
     .product-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
     }
-     .contact {
-    padding: 40px 5%;
-    margin: 55px;
-  }
-  }
-@media (max-width: 600px) {
-  .contact {
-    padding: 40px 5%;
-    margin: 35px;
-  }
 
-  form {
-    padding: 20px;
-  }
-  .product{
-    opacity: 1;
-    width: 70%;
-    align-items: center;
-    margin-left: 40px;
-  }
-  .about-image img {
-    max-width: 60%;
-    width: 60%;
-    align-items: center;
-  }
-}
+    .product {
+      background-color: var(--white);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      opacity: 0.78;
+      transition: transform 0.3s ease, opacity 0.4s ease;
+    }
 
-@media (max-width: 480px) {
-  .about-text p{
-    font-size: 0.9rem;
-  }
-  .about-image img {
-    max-width: 50%;
-    width: 50%;
-    align-items: center;
-  }
-  .contact,.products{
-    padding-top: 80px;
-  }
-  .product{
-    width: 70%;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-  }
-}
-#loader {
+    .product:hover {
+      transform: translateY(-4px);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 60%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .product h3 {
+      margin-top: 12px;
+      font-size: 1rem;
+    }
+
+    .product a {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    .product a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 5%;
+      background-color: #000;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .contact {
+      padding: 120px 5%;
+      background-color: rgb(253, 249, 30);
+
+    }
+
+    .contact h2 {
+      padding-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #000;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+    input,
+    textarea {
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--black);
+    }
+
+    button.submit-btn {
+      padding: 14px;
+      background-color: var(--black);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.submit-btn:hover {
+      background-color: #333;
+    }
+
+    .about {
+      padding: 120px 8%;
+      background-color: var(--white);
+    }
+
+    .about-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 270px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .about-image img {
+        max-width: 60%;
+        width: 60%;
+        align-items: center;
+      }
+
+      nav .button {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+      }
+
+      .about,
+      .products,
+      .contact {
+        padding: 20px 5%;
+      }
+
+      .hero h1 {
+        margin-top: -150px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .contact {
+        padding: 40px 5%;
+        margin: 55px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact {
+        padding: 40px 5%;
+        margin: 35px;
+      }
+
+      form {
+        padding: 20px;
+      }
+
+      .product {
+        opacity: 1;
+        width: 70%;
+        align-items: center;
+        margin-left: 40px;
+      }
+
+      .about-image img {
+        max-width: 60%;
+        width: 60%;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-text p {
+        font-size: 0.9rem;
+      }
+
+      .about-image img {
+        max-width: 50%;
+        width: 50%;
+        align-items: center;
+      }
+
+      .contact,
+      .products {
+        padding-top: 80px;
+      }
+
+      .product {
+        width: 70%;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+      }
+    }
+
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(253, 249, 30);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    #loader .loader-content {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #loader p {
+      margin-top: 16px;
+      font-size: 1.2rem;
+      color: #000;
+      letter-spacing: 1px;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #000;
+      border-top: 4px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    /* Modal Styles */
+.image-modal {
+  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(253, 249, 30);
-  display: flex;
-  align-items: center;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
   justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
 }
 
-#loader .loader-content {
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
+.modal-image {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-#loader p {
-  margin-top: 16px;
-  font-size: 1.2rem;
-  color: #000;
-  letter-spacing: 1px;
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
 }
 
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #000;
-  border-top: 4px solid transparent;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: auto;
+.close-btn:hover {
+  color: #ccc;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-</style>
+  </style>
 
 </head>
+
 <body>
   <div id="loader">
-  <div class="loader-content">
-    <div class="spinner"></div>
-    <p>Loading The Store...</p>
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p>Loading The Store...</p>
+    </div>
   </div>
-</div>
 
   <nav>
     <div class="logo">OneStop Wholesale</div>
@@ -441,142 +501,179 @@ button.submit-btn:hover {
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#contact">Contact</a></li>
-            <li><a href="#footer">Links</a></li>
+      <li><a href="#footer">Links</a></li>
     </ul>
-   <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
+    <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
   </nav>
   <section id="hero" class="hero section">
-    <h1 >OneStop Wholesale</h1>
+    <h1>OneStop Wholesale</h1>
     <p>Fashion that shapes your choice</p>
     <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Order Here</button></a>
   </section>
 
- <section id="about" class="about section">
-  <div class="about-inner">
-    <div class="about-text">
-      <h2>About</h2>
-      <p>
-        Welcome to our brand – your one-stop destination for premium-quality polo shirts, stylish t-shirts, and elegant handbags for women. We are a dedicated company committed to offering fashionable, comfortable, and affordable apparel and accessories that reflect both classic and modern styles.
-        <br><br>
-        Our collection is designed to suit every occasion, whether you're dressing up for a day out or keeping it casual. With a focus on quality, customer satisfaction, and trend-inspired designs, we aim to make you look good and feel confident every day.
-      </p>
-    </div>
-    <div class="about-image" >
-      <img src="/logo.jpg" alt="OS Logo">
-    </div>
-  </div>
-</section>
-
-
-  <section id="products"  class="products section">
-    <h2>Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="/1.avif" alt="Polo Shirt" />
-        <h3>POLO SHIRT</h3>
-        <a href="https://wa.me/3151073322">Top Quality Wholesale Polo Shirts for Casual Wear </a>
-        <h4>950 RS</h4>
+  <section id="about" class="about section">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>About</h2>
+        <p>
+          Welcome to our brand – your one-stop destination for premium-quality polo shirts, stylish t-shirts, and
+          elegant handbags for women. We are a dedicated company committed to offering fashionable, comfortable, and
+          affordable apparel and accessories that reflect both classic and modern styles.
+          <br><br>
+          Our collection is designed to suit every occasion, whether you're dressing up for a day out or keeping it
+          casual. With a focus on quality, customer satisfaction, and trend-inspired designs, we aim to make you look
+          good and feel confident every day.
+        </p>
       </div>
-      <div class="product">
-        <img src="/HandBag.avif" alt="Female Handbag" />
-        <h3>FEMALE HANDBAG</h3>
-        <a href="https://wa.me/3151073322">Trending Wholesale Handbags For Women</a>
-        <h4>2800 RS</h4>
-
-      </div>
-      <div class="product">
-        <img src="/Checkered Shirt.avif" alt="Checkered Shirt" />
-        <h3>CHECKERED SHIRT</h3>
-        <a href="https://wa.me/3151073322">Top Quality Wholesale Checkered Shirts for Men</a>
-        <h4>3000 RS</h4>
+      <div class="about-image">
+        <img src="/logo.jpg" alt="OS Logo">
       </div>
     </div>
   </section>
 
- 
-<section id="contact" class="contact section">
-  <h2>Contact Us</h2>
 
-  <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-  <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-  <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
-  <button type="submit" class="submit-btn">Send Message</button>
-</form>
-
-
+  <section id="products" class="products section">
+  <h2>Products</h2>
+  <div class="product-grid">
+    <div class="product">
+      <img src="/1.avif" alt="Polo Shirt" class="enlarge-img" />
+      <h3>POLO SHIRT</h3>
+      <a href="https://wa.me/3151073322">Top Quality Wholesale Polo Shirts for Casual Wear</a>
+      <h4>950 RS</h4>
+    </div>
+    <div class="product">
+      <img src="/HandBag.avif" alt="Female Handbag" class="enlarge-img" />
+      <h3>FEMALE HANDBAG</h3>
+      <a href="https://wa.me/3151073322">Trending Wholesale Handbags For Women</a>
+      <h4>2800 RS</h4>
+    </div>
+    <div class="product">
+      <img src="/Checkered Shirt.avif" alt="Checkered Shirt" class="enlarge-img" />
+      <h3>CHECKERED SHIRT</h3>
+      <a href="https://wa.me/3151073322">Top Quality Wholesale Checkered Shirts for Men</a>
+      <h4>3000 RS</h4>
+    </div>
+  </div>
 </section>
+<div class="image-modal" id="imageModal">
+  <span class="close-btn" id="closeModal">&times;</span>
+  <img class="modal-image" id="modalImage" loading="lazy" alt="Enlarged Product" />
+</div>
 
 
-<section class="footer section">
-  <footer  id="footer" style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
-  <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
-    
- 
-    <div style="flex:1; min-width:200px;">
-      <h3 style="font-size:1.2rem; margin-bottom:10px;">OneStop Wholesale</h3>
-      <p style="color:#000;">
-        Your one-stop destination for quality wholesale apparel & fashion accessories. Trendy, affordable, and reliable – all in one place.
-      </p>
-    </div>
 
-  
-    <div style="flex:1; min-width:150px;">
-      <h4 style="margin-bottom:10px;">Site Links</h4>
-      <ul style="list-style:none; padding:0; line-height:1.8;">
-        <li><a href="#hero" style="color:#000; text-decoration:none;">Home</a></li>
-        <li><a href="#about" style="color:#000; text-decoration:none;">About</a></li>
-        <li><a href="#products" style="color:#000; text-decoration:none;">Products</a></li>
-        <li><a href="#contact" style="color:#000; text-decoration:none;">Contact</a></li>
-      </ul>
-    </div>
-    <div style="flex:1; min-width:150px; text-align: center;">
-      <h4 style="margin-bottom:10px;">Follow Us</h4>
-      <div class="social-icons" style="display:flex; justify-content:center; gap:15px; align-items:center; margin-top:10px; flex-wrap: wrap;">
-        <a href="https://www.facebook.com/profile.php?id=100067395392274" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:24px;" />
-        </a>
-    <a href="https://www.instagram.com/onestopshoopp?fbclid=IwY2xjawLgL01leHRuA2FlbQIxMABicmlkETEwVEtpUGZuNWdPaEFGUXJoAR6EZxQnFQu7r3DYRJzMtd4hvR" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:24px;" />
-        </a>
-        <a href="https://www.tiktok.com/@onestopshoopp?is_from_webapp=1&sender_device=pc" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" style="width:24px;" />
-        </a>
-        <a href="https://wa.me/3151073322" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width:24px;" />
-        </a>
+  <section id="contact" class="contact section">
+    <h2>Contact Us</h2>
+
+    <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+      <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+
+  </section>
+
+
+  <section class="footer section">
+    <footer id="footer" style="background-color:rgb(255, 255, 255); color:black; padding:40px 5%; font-size:0.95rem;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
+
+
+        <div style="flex:1; min-width:200px;">
+          <h3 style="font-size:1.2rem; margin-bottom:10px;">OneStop Wholesale</h3>
+          <p style="color:#000;">
+            Your one-stop destination for quality wholesale apparel & fashion accessories. Trendy, affordable, and
+            reliable – all in one place.
+          </p>
+        </div>
+
+
+        <div style="flex:1; min-width:150px;">
+          <h4 style="margin-bottom:10px;">Site Links</h4>
+          <ul style="list-style:none; padding:0; line-height:1.8;">
+            <li><a href="#hero" style="color:#000; text-decoration:none;">Home</a></li>
+            <li><a href="#about" style="color:#000; text-decoration:none;">About</a></li>
+            <li><a href="#products" style="color:#000; text-decoration:none;">Products</a></li>
+            <li><a href="#contact" style="color:#000; text-decoration:none;">Contact</a></li>
+          </ul>
+        </div>
+        <div style="flex:1; min-width:150px; text-align: center;">
+          <h4 style="margin-bottom:10px;">Follow Us</h4>
+          <div class="social-icons"
+            style="display:flex; justify-content:center; gap:15px; align-items:center; margin-top:10px; flex-wrap: wrap;">
+            <a href="https://www.facebook.com/profile.php?id=100067395392274" target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
+                style="width:24px;" />
+            </a>
+            <a href="https://www.instagram.com/onestopshoopp?fbclid=IwY2xjawLgL01leHRuA2FlbQIxMABicmlkETEwVEtpUGZuNWdPaEFGUXJoAR6EZxQnFQu7r3DYRJzMtd4hvR"
+              target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
+                style="width:24px;" />
+            </a>
+            <a href="https://www.tiktok.com/@onestopshoopp?is_from_webapp=1&sender_device=pc" target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok"
+                style="width:24px;" />
+            </a>
+            <a href="https://wa.me/3151073322" target="_blank">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"
+                style="width:24px;" />
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div style="width: 100%; text-align:center; margin-top:30px; border-top:1px solid #333; padding-top:15px; color:#333;">
-    &copy; 2025 OneStop Wholesale – Fashion that shapes your choice.
-  </div>
-</footer>
-</section>
+      <div
+        style="width: 100%; text-align:center; margin-top:30px; border-top:1px solid #333; padding-top:15px; color:#333;">
+        &copy; 2025 OneStop Wholesale – Fashion that shapes your choice.
+      </div>
+    </footer>
+  </section>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      }
+  <script>
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  const closeBtn = document.getElementById("closeModal");
+
+  document.querySelectorAll(".enlarge-img").forEach((img) => {
+    img.addEventListener("click", () => {
+      modalImage.src = img.src;
+      modal.style.display = "flex";
     });
-  }, {
-    threshold: 0.35
   });
 
-  document.querySelectorAll('.section').forEach(section => {
-    observer.observe(section);
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalImage.src = "";
   });
-  window.addEventListener("load", function () {
-    const loader = document.getElementById("loader");
-    loader.classList.add("hidden");
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImage.src = "";
+    }
   });
-</script>
 
-
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.35
+    });
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      loader.classList.add("hidden");
+    });
+  </script>
 </body>
+
 </html>
