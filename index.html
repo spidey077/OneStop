@@ -541,6 +541,8 @@
       border-radius: 20px;
       cursor: pointer;
       z-index: 1000;
+  transition: transform 0.3s ease;
+
     }
 
     .dark-mode .theme-toggle {
@@ -565,7 +567,7 @@
   transition: transform 0.3s ease;
 }
 
-.whatsapp-float:hover {
+.whatsapp-float:hover, .theme-toggle:hover {
   transform: scale(1.1);
 }
 
@@ -772,14 +774,11 @@
     });
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
-
-    // Apply theme from localStorage
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       body.classList.add('dark-mode');
       toggleBtn.textContent = '☀️ Light Mode';
     }
-
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       const isDark = body.classList.contains('dark-mode');
