@@ -547,6 +547,33 @@
       background-color: #333;
       color: #f5f5f5;
     }
+    .whatsapp-float {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 30px;
+  height: 30px;
+}
+
   </style>
 
 </head>
@@ -625,6 +652,9 @@
     <span class="close-btn" id="closeModal">&times;</span>
     <img class="modal-image" id="modalImage" loading="lazy" alt="Enlarged Product" />
   </div>
+<a href="https://wa.me/3151073322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
+</a>
 
 
   <section id="contact" class="contact section">
