@@ -229,6 +229,17 @@
       color: #fff;
       font-size: 0.9rem;
     }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-weight: 600;
+  color: #222;
+  font-size: 1rem;
+}
 
     .contact {
       padding: 120px 5%;
@@ -685,20 +696,36 @@
 </a>
 
 
-  <section id="contact" class="contact section">
-    <h2>Contact Us</h2>
+<section id="contact" class="contact section">
+  <h2>Get in Touch</h2>
 
-    <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
-      <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
+  <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
+    
+    <div class="form-group">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" name="first_name" placeholder="Your First Name" required />
+    </div>
 
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" name="last_name" placeholder="Your Last Name" required />
+    </div>
 
-  </section>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+    </div>
+    <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
+    <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
+
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</section>
 
 
   <section class="footer section">
