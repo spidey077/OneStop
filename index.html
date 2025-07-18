@@ -132,17 +132,17 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      background: url('https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg') center/cover no-repeat; color: yellow;text-shadow:-1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
     }
 
     .hero h1 {
       font-size: clamp(2rem, 6vw, 70px);
       margin-top: -150px;
       line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      margin: 10px 0 20px;
+      margin-bottom: 10px;
     }
 
     .cta-btn {
@@ -180,9 +180,9 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  width: 85%; /* Shrink width instead of scaling */
-  max-width: 300px; /* Optional: to cap large screens */
-  margin: 0 auto; /* Center card */
+  width: 85%; 
+  max-width: 300px; 
+  margin: 0 auto; 
   transition: transform 0.3s ease;
 }
 
@@ -222,21 +222,17 @@
 .product-info {
   padding: 20px;
   text-align: center;
+  font-weight: normal;
 }
 .product-info h3 {
   margin: 0;
   font-size: 1.2rem;
   color: #111;
-}
-.product-desc {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 8px 0;
+  font-weight: normal;
 }
 .product-price {
   font-size: 1.1rem;
-  font-weight: bold;
-  color: #000;
+  color: #9b9898;
 }
 
 
@@ -450,7 +446,12 @@ label {
     width: 90%;
     max-width: 170px;
   }
-
+#hero{
+  background-image: none;
+}
+.hero h1{
+  color:white;
+}
     }
 
     #loader {
@@ -650,11 +651,7 @@ label {
     </ul>
     <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Shop Now</button></a>
   </nav>
-  <section id="hero" class="hero section" style="background: url('https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg') center/cover no-repeat; color: yellow;text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;">
+  <section id="hero" class="hero section" >
   <h1>OneStop Wholesale</h1>
   <a href="https://wa.me/3151073322" target="_blank">
     <button class="cta-btn">Order Here</button>
@@ -694,8 +691,7 @@ label {
       <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
     </div>
     <div class="product-info">
-      <h3>POLO SHIRT</h3>
-      <p class="product-desc">Top Quality Wholesale Polo Shirts for Casual Wear</p>
+      <h3>Polo Shirt</h3>
       <div class="product-price">950 RS</div>
     </div>
   </div>
@@ -707,8 +703,7 @@ label {
       <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
     </div>
     <div class="product-info">
-      <h3>FEMALE HANDBAG</h3>
-      <p class="product-desc">Trending Wholesale Handbags For Women</p>
+      <h3>Female Handbag</h3>
       <div class="product-price">2800 RS</div>
     </div>
   </div>
@@ -719,8 +714,7 @@ label {
       <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
     </div>
     <div class="product-info">
-      <h3>CHECKERED SHIRT</h3>
-      <p class="product-desc">Top Quality Wholesale Checkered Shirts for Men</p>
+      <h3>Checkered Shirt</h3>
       <div class="product-price">3000 RS</div>
     </div>
   </div>
