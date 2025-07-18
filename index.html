@@ -160,67 +160,85 @@
       background-color: #222;
       transform: scale(1.1);
     }
+.products {
+  padding: 70px 5%;
+}
+.products h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    .products {
-      padding: 70px 5%;
-    }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
 
-    .products h2 {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-      text-align: center;
-    }
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  width: 85%; /* Shrink width instead of scaling */
+  max-width: 300px; /* Optional: to cap large screens */
+  margin: 0 auto; /* Center card */
+  transition: transform 0.3s ease;
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
+.product-card:hover {
+  transform: translateY(-5px);
+}
 
-    .product {
-      background-color: var(--white);
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      opacity: 0.78;
-      transition: transform 0.3s ease, opacity 0.4s ease;
-    }
+.product-thumb {
+  position: relative;
+}
+.product-thumb img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-thumb:hover img {
+  transform: scale(1.05);
+}
 
-    .product:hover {
-      transform: translateY(-4px);
-      opacity: 1;
-      transform: scale(1.05);
-    }
+.btn-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.product-thumb:hover .btn-overlay {
+  opacity: 1;
+}
 
-    .product img {
-      max-width: 60%;
-      height: auto;
-      border-radius: 6px;
-      transition: transform 0.3s ease;
-    }
+.product-info {
+  padding: 20px;
+  text-align: center;
+}
+.product-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #111;
+}
+.product-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 8px 0;
+}
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+}
 
-    .product img:hover {
-      transform: scale(1.1);
-    }
-
-    .product h3 {
-      margin-top: 12px;
-      font-size: 1rem;
-    }
-
-    .product a {
-      display: block;
-      margin-top: 6px;
-      font-size: 0.9rem;
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .product a:hover {
-      color: #000;
-    }
 
     footer {
       text-align: center;
@@ -255,7 +273,7 @@ label {
       color: #000;
     }
 
- form {
+    form {
       max-width: 600px;
       margin: auto;
       display: flex;
@@ -369,6 +387,10 @@ label {
       .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
+    .product-card {
+    width: 90%;
+    max-width: 250px;
+  }
 
       .contact {
         padding: 40px 5%;
@@ -424,12 +446,10 @@ label {
         padding-top: 80px;
       }
 
-      .product {
-        width: 70%;
-        align-items: center;
-        text-align: center;
-        margin: auto;
-      }
+    .product-card {
+    width: 90%;
+    max-width: 170px;
+  }
 
     }
 
@@ -663,40 +683,56 @@ label {
     </div>
   </section>
 
+<section id="products" class="products section">
+<h2>Products</h2>
+<div class="product-grid">
 
-  <section id="products" class="products section">
-    <h2>Products</h2>
-    <div class="product-grid">
-      <div class="product">
-        <img src="/1.avif" alt="Polo Shirt" class="enlarge-img" />
-        <h3>POLO SHIRT</h3>
-        <a href="https://wa.me/3151073322">Top Quality Wholesale Polo Shirts for Casual Wear</a>
-        <h4>950 RS</h4>
-      </div>
-      <div class="product">
-        <img src="/HandBag.avif" alt="Female Handbag" class="enlarge-img" />
-        <h3>FEMALE HANDBAG</h3>
-        <a href="https://wa.me/3151073322">Trending Wholesale Handbags For Women</a>
-        <h4>2800 RS</h4>
-      </div>
-      <div class="product">
-        <img src="/Checkered Shirt.avif" alt="Checkered Shirt" class="enlarge-img" />
-        <h3>CHECKERED SHIRT</h3>
-        <a href="https://wa.me/3151073322">Top Quality Wholesale Checkered Shirts for Men</a>
-        <h4>3000 RS</h4>
-      </div>
+  <!-- Product 1 -->
+  <div class="product-card">
+    <div class="product-thumb">
+      <img src="/1.avif" alt="Polo Shirt">
+      <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
     </div>
-  </section>
-  <div class="image-modal" id="imageModal">
-    <span class="close-btn" id="closeModal">&times;</span>
-    <img class="modal-image" id="modalImage" loading="lazy" alt="Enlarged Product" />
+    <div class="product-info">
+      <h3>POLO SHIRT</h3>
+      <p class="product-desc">Top Quality Wholesale Polo Shirts for Casual Wear</p>
+      <div class="product-price">950 RS</div>
+    </div>
   </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <div class="product-thumb">
+      <img src="/HandBag.avif" alt="Female Handbag">
+      <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+    </div>
+    <div class="product-info">
+      <h3>FEMALE HANDBAG</h3>
+      <p class="product-desc">Trending Wholesale Handbags For Women</p>
+      <div class="product-price">2800 RS</div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-thumb">
+      <img src="/Checkered Shirt.avif" alt="Checkered Shirt">
+      <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+    </div>
+    <div class="product-info">
+      <h3>CHECKERED SHIRT</h3>
+      <p class="product-desc">Top Quality Wholesale Checkered Shirts for Men</p>
+      <div class="product-price">3000 RS</div>
+    </div>
+  </div>
+
+</div>
+
+</section>
 <a href="https://wa.me/3151073322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
   <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
 </a>
 
-
-<section id="contact" class="contact section">
+ <section id="contact" class="contact section">
   <h2>Get in Touch</h2>
 
   <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
@@ -726,6 +762,7 @@ label {
     <button type="submit" class="submit-btn">Send Message</button>
   </form>
 </section>
+
 
 
   <section class="footer section">
@@ -783,29 +820,6 @@ label {
   </section>
 
   <script>
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    const closeBtn = document.getElementById("closeModal");
-
-    document.querySelectorAll(".enlarge-img").forEach((img) => {
-      img.addEventListener("click", () => {
-        modalImage.src = img.src;
-        modal.style.display = "flex";
-      });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      modalImage.src = "";
-    });
-
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-        modalImage.src = "";
-      }
-    });
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
