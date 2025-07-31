@@ -413,18 +413,29 @@
         display: none;
       }
 
-      nav.active ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: rgba(255, 255, 0, 0.95);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 0;
-        animation: dropdown 0.3s ease forwards;
-      }
+     nav.active ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       
+  align-items: center;            
+  background-color: rgba(255, 255, 0, 0.95);
+  position: absolute;
+  top: 0;                       
+  left: 0;
+  height: 100vh;                  
+  width: 100vw;                  
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+  animation: dropdown 0.3s ease forwards;
+}
+nav.active ul li {
+  font-size: 4rem; 
+  text-align: center;
+  font-weight: bolder;
+}
+
+
 .dark-mode nav.active ul{
         background-color: rgba(44, 44, 44, 0.95);
         color: white;
