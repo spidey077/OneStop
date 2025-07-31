@@ -132,10 +132,12 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: url('https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg') center/cover no-repeat; color: yellow;text-shadow:-1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+      background: url('https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg') center/cover no-repeat;
+      color: yellow;
+      text-shadow: -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
     }
 
     .hero h1 {
@@ -149,7 +151,7 @@
       padding: 10px 20px;
       background-color: var(--black);
       color: var(--white);
-      border:rgb(255, 251, 12) 1px solid;
+      border: rgb(255, 251, 12) 1px solid;
       border-radius: 6px;
       font-size: 1rem;
       cursor: pointer;
@@ -160,82 +162,89 @@
       background-color: #222;
       transform: scale(1.1);
     }
-.products {
-  padding: 70px 5%;
-  
-}
-#products h2 {
-  font-size: 2rem;
-  margin-bottom: 60px;
-  text-align: center;
-}
+
+    .products {
+      padding: 70px 5%;
+
+    }
+
+    #products h2 {
+      font-size: 2rem;
+      margin-bottom: 60px;
+      text-align: center;
+    }
 
 
-.product-grid {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
+    .product-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
 
-.product-card {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  width: 85%; 
-  margin: 0 auto; 
-  transition: transform 0.3s ease;
-}
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      width: 85%;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
 
-.product-thumb {
-  position: relative;
-}
-.product-thumb img {
-  width: 100%;
-  display: block;
-  transition: transform 0.4s ease;
-}
-.product-thumb:hover img {
-  transform: scale(1.10);
-}
+    .product-thumb {
+      position: relative;
+    }
 
-.btn-overlay {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.product-thumb:hover .btn-overlay {
-  opacity: 1;
-}
+    .product-thumb img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
 
-.product-info {
-  padding: 20px;
-  text-align: center;
-  font-weight: normal;
-}
-.product-info h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #111;
-  font-weight: normal;
-}
-.product-price {
-  font-size: 1.1rem;
-  color: #9b9898;
-}
+    .product-thumb:hover img {
+      transform: scale(1.10);
+    }
+
+    .btn-overlay {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-thumb:hover .btn-overlay {
+      opacity: 1;
+    }
+
+    .product-info {
+      padding: 20px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    .product-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #111;
+      font-weight: normal;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      color: #9b9898;
+    }
 
 
     footer {
@@ -245,17 +254,18 @@
       color: #fff;
       font-size: 0.9rem;
     }
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
 
-label {
-  font-weight: 600;
-  color: #222;
-  font-size: 1rem;
-}
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #222;
+      font-size: 1rem;
+    }
 
     .contact {
       padding: 120px 5%;
@@ -316,7 +326,7 @@ label {
     .about {
       padding: 120px 8%;
       background-color: var(--white);
-  margin-bottom: 70px;
+      margin-bottom: 70px;
     }
 
     .about-inner {
@@ -386,10 +396,11 @@ label {
       .product-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
-    .product-card {
-    width: 90%;
-    max-width: 250px;
-  }
+
+      .product-card {
+        width: 90%;
+        max-width: 250px;
+      }
 
       .contact {
         padding: 40px 5%;
@@ -421,23 +432,25 @@ label {
         padding: 5px 10px;
       }
     }
-.bullet-list {
-  list-style-position: inside; 
-  padding-left: 0;  
-  margin-top: 1.5rem;
-}
 
-.bullet-list li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6;
-}
+    .bullet-list {
+      list-style-position: inside;
+      padding-left: 0;
+      margin-top: 1.5rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
 
     @media (max-width: 480px) {
       .about-text p {
         font-size: 0.9rem;
       }
+
       .about-image img {
         max-width: 50%;
         width: 50%;
@@ -447,20 +460,24 @@ label {
       .contact {
         padding-top: 80px;
       }
-#hero{
-  background-image: none;
-}
-.hero h1{
-  font-size: 40px;
-  color:white;
-}
-#loader p {
- display: none;
-  
-}
+
+      #hero {
+        background-image: none;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+        color: white;
+      }
+
+      #loader p {
+        display: none;
+
+      }
 
     }
-#loader {
+
+    #loader {
       position: fixed;
       top: 0;
       left: 0;
@@ -474,31 +491,32 @@ label {
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
-   #loader .loader-content {
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
+    #loader .loader-content {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
 
-#loader p {
-  margin-top: 20px;
-  font-size: 2rem;
-  font-weight: 900;
-  color: #222;
-  letter-spacing: 1.2px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-  animation: fadeText 1.2s ease-in-out infinite alternate;
-}
+    #loader p {
+      margin-top: 20px;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #222;
+      letter-spacing: 1.2px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+      animation: fadeText 1.2s ease-in-out infinite alternate;
+    }
 
-@keyframes fadeText {
-  0% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-}
+    @keyframes fadeText {
+      0% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
 
 
     .spinner {
@@ -539,22 +557,27 @@ label {
       color: rgb(0, 0, 0);
     }
 
-    .dark-mode .contact h2,.dark-mode nav .logo {
+    .dark-mode .contact h2,
+    .dark-mode nav .logo {
       color: white;
     }
 
     .dark-mode .card,
     .dark-mode .image-box,
-    .dark-mode .contact-container,.dark-mode nav{
+    .dark-mode .contact-container,
+    .dark-mode nav {
       background-color: #2c2c2c;
       color: #f5f5f5;
     }
+
     .dark-mode nav a {
       color: white;
     }
-.dark-mode nav a:hover{
+
+    .dark-mode nav a:hover {
       color: #f5f5f5;
-}
+    }
+
     .theme-toggle {
       position: fixed;
       bottom: 20px;
@@ -565,7 +588,7 @@ label {
       border-radius: 20px;
       cursor: pointer;
       z-index: 1000;
-  transition: transform 0.3s ease;
+      transition: transform 0.3s ease;
 
     }
 
@@ -573,65 +596,66 @@ label {
       background-color: #333;
       color: #f5f5f5;
     }
+
     .whatsapp-float {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
 
-.whatsapp-float:hover, .theme-toggle:hover {
-  transform: scale(1.1);
-}
+    .whatsapp-float:hover,
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
 
-.whatsapp-float img {
-  width: 30px;
-  height: 30px;
-}
-.faq {
-  padding: 60px 20px;
-  text-align: center;
-}
+    .whatsapp-float img {
+      width: 30px;
+      height: 30px;
+    }
 
-.faq-container {
-  display: grid;
-  gap: 20px;
-  max-width: 900px;
-  margin: auto;
-}
+    .faq {
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-.faq-card {
-  background-color: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  text-align: left;
-}
+    .faq-container {
+      display: grid;
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-.faq-card h3 {
-  margin-bottom: 25px;
-  font-size: 1.2rem;
-  color: #333;
-}
+    .faq-card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
 
-.faq-card p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-}
+    .faq-card h3 {
+      margin-bottom: 25px;
+      font-size: 1.2rem;
+      color: #333;
+    }
 
-
+    .faq-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
   </style>
 
 </head>
@@ -648,208 +672,213 @@ label {
     <div class="logo">OneStop Wholesale</div>
     <ul>
       <li><a href="#hero">Home</a></li>
-      <li><a href="#products">Products</a></li>
       <li><a href="#why-us">Why Choose Us</a></li>
-      <li><a href="#faq">Contact</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#footer">Links</a></li>
     </ul>
     <a href="https://wa.me/3151073322" target="_blank"><button class="cta-btn">Shop Now</button></a>
   </nav>
-  <section id="hero" class="hero section" >
-  <h1>OneStop Wholesale</h1>
-  <a href="https://wa.me/3151073322" target="_blank">
-    <button class="cta-btn">Order Here</button>
-  </a>
-</section>
+  <section id="hero" class="hero section">
+    <h1>OneStop Wholesale</h1>
+    <a href="https://wa.me/3151073322" target="_blank">
+      <button class="cta-btn">Order Here</button>
+    </a>
+  </section>
 
   <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
 
 
-<section id="why-us" class="about section">
-  <div class="about-inner">
-    <div class="about-text">
-      <h2>Why Choose Us</h2>
-      <p>
-        At OS, we believe fashion should feel as good as it looks. Our goal is to deliver clothing and accessories that combine timeless design, reliable comfort, and unbeatable value.
-      </p>
-      <p>
-        Whether you're dressing up for a day out or keeping it casual, our collection of polo shirts, t-shirts, and handbags is designed to help you look your best with minimal effort.
-      </p>
-      <ul class="bullet-list">
-        <li>Premium-quality fabrics that last</li>
-        <li>Modern and versatile designs for all occasions</li>
-        <li>Affordable prices with no compromise on style</li>
-        <li>Thoughtfully curated selection of apparel and accessories</li>
-        <li>Fast delivery and responsive customer support</li>
-      </ul>
-    </div>
-    <div class="about-image">
-      <img src="/logo.jpg" alt="OS Logo">
-    </div>
-  </div>
-</section>
-<section id="products">
-  <h2>Products</h2>
-  <div class="product-grid">
-
-   <div class="product-card">
-      <div class="product-thumb">
-        <img src="/poloshirt.jpg" alt="Polo Shirt Style 1">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+  <section id="why-us" class="about section">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>Why Choose Us</h2>
+        <p>
+          At OS, we believe fashion should feel as good as it looks. Our goal is to deliver clothing and accessories
+          that combine timeless design, reliable comfort, and unbeatable value.
+        </p>
+        <p>
+          Whether you're dressing up for a day out or keeping it casual, our collection of polo shirts, t-shirts, and
+          handbags is designed to help you look your best with minimal effort.
+        </p>
+        <ul class="bullet-list">
+          <li>Premium-quality fabrics that last</li>
+          <li>Modern and versatile designs for all occasions</li>
+          <li>Affordable prices with no compromise on style</li>
+          <li>Thoughtfully curated selection of apparel and accessories</li>
+          <li>Fast delivery and responsive customer support</li>
+        </ul>
       </div>
-      <div class="product-info">
-        <h3>Polo Shirt</h3>
-        <div class="product-price">950 RS</div>
+      <div class="about-image">
+        <img src="/logo.jpg" alt="OS Logo">
       </div>
     </div>
+  </section>
+  <section id="products">
+    <h2>Products</h2>
+    <div class="product-grid">
 
-    <!-- Product 2 -->
-   <div class="product-card">
-      <div class="product-thumb">
-        <img src="/poloshirt2.jpg" alt="Polo Shirt Style 2">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/poloshirt.jpg" alt="Polo Shirt Style 1">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Polo Shirt</h3>
+          <div class="product-price">950 RS</div>
+        </div>
       </div>
-      <div class="product-info">
-        <h3>Polo Shirt</h3>
-        <div class="product-price">950 RS</div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/poloshirt2.jpg" alt="Polo Shirt Style 2">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Polo Shirt</h3>
+          <div class="product-price">950 RS</div>
+        </div>
       </div>
-    </div>
 
 
-     <div class="product-card">
-      <div class="product-thumb">
-        <img src="/poloshirt3.jpg" alt="Polo Shirt Style 3">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/poloshirt3.jpg" alt="Polo Shirt Style 3">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Polo Shirt</h3>
+          <div class="product-price">950 RS</div>
+        </div>
       </div>
-      <div class="product-info">
-        <h3>Polo Shirt</h3>
-        <div class="product-price">950 RS</div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/shirt.jpg" alt="Checkered Shirt">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Checkered Shirt</h3>
+          <div class="product-price">3000 RS</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Product 3 -->
-    <div class="product-card">
-      <div class="product-thumb">
-        <img src="/shirt.jpg" alt="Checkered Shirt">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/shirt2.jpg" alt="Checkered Shirt 2">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Checkered Shirt</h3>
+          <div class="product-price">3000 RS</div>
+        </div>
       </div>
-      <div class="product-info">
-        <h3>Checkered Shirt</h3>
-        <div class="product-price">3000 RS</div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/shirt3.jpg" alt="Checkered Shirt 3">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Checkered Shirt</h3>
+          <div class="product-price">3000 RS</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Product 4 -->
-    <div class="product-card">
-      <div class="product-thumb">
-        <img src="/shirt2.jpg" alt="Checkered Shirt 2">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/Bag.jpg" alt="Female Handbag 1 ">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Female Handbag</h3>
+          <div class="product-price">2800 RS</div>
+        </div>
       </div>
-      <div class="product-info">
-        <h3>Checkered Shirt</h3>
-        <div class="product-price">3000 RS</div>
+      <div class="product-card">
+        <div class="product-thumb">
+          <img src="/Bag2.jpg" alt="Female Handbag 2 ">
+          <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+        </div>
+        <div class="product-info">
+          <h3>Female Handbag</h3>
+          <div class="product-price">2800 RS</div>
+        </div>
       </div>
+
+
     </div>
-    <div class="product-card">
-      <div class="product-thumb">
-        <img src="/shirt3.jpg" alt="Checkered Shirt 3">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+  </section>
+  <a href="https://wa.me/3151073322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
+  </a>
+  <section id="faq" class="faq section">
+    <h2 style="margin-bottom: 20px;">FAQ</h2>
+    <div class="faq-container">
+
+      <div class="faq-card">
+        <h3>What products do you offer?</h3>
+        <p>
+          We specialize in premium polo shirts, casual t-shirts, and elegant handbags for women. Our products combine
+          comfort, quality, and style to meet your everyday fashion needs.
+        </p>
       </div>
-      <div class="product-info">
-        <h3>Checkered Shirt</h3>
-        <div class="product-price">3000 RS</div>
+
+      <div class="faq-card">
+        <h3>Do you offer nationwide delivery?</h3>
+        <p>
+          Yes, we offer fast and reliable nationwide delivery across Pakistan. Delivery times usually range from 2 to 5
+          working days depending on your location.
+        </p>
       </div>
-    </div>
 
-
-    <!-- Product 5 -->
-    <div class="product-card">
-      <div class="product-thumb">
-        <img src="/Bag.jpg" alt="Female Handbag 1 ">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+      <div class="faq-card">
+        <h3>How can I place an order?</h3>
+        <p>
+          Simply browse our collection, choose your desired product, and click the WhatsApp button to place your order
+          directly with our team.
+        </p>
       </div>
-      <div class="product-info">
-        <h3>Female Handbag</h3>
-        <div class="product-price">2800 RS</div>
+
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact section">
+    <h2>Get in Touch</h2>
+
+    <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
+
+      <div class="form-group">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" name="first_name" placeholder="Your First Name" required />
       </div>
-    </div>
-    <div class="product-card">
-      <div class="product-thumb">
-        <img src="/Bag2.jpg" alt="Female Handbag 2 ">
-        <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
+
+      <div class="form-group">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" name="last_name" placeholder="Your Last Name" required />
       </div>
-      <div class="product-info">
-        <h3>Female Handbag</h3>
-        <div class="product-price">2800 RS</div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
       </div>
-    </div>
 
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+      </div>
+      <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
+      <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
 
-  </div>
-</section>
-<a href="https://wa.me/3151073322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
-</a>
-<section id="faq" class="faq section">
-  <h2 style="margin-bottom: 20px;">FAQ</h2>
-  <div class="faq-container">
-
-    <div class="faq-card">
-      <h3>What products do you offer?</h3>
-      <p>
-        We specialize in premium polo shirts, casual t-shirts, and elegant handbags for women. Our products combine comfort, quality, and style to meet your everyday fashion needs.
-      </p>
-    </div>
-
-    <div class="faq-card">
-      <h3>Do you offer nationwide delivery?</h3>
-      <p>
-        Yes, we offer fast and reliable nationwide delivery across Pakistan. Delivery times usually range from 2 to 5 working days depending on your location.
-      </p>
-    </div>
-
-    <div class="faq-card">
-      <h3>How can I place an order?</h3>
-      <p>
-        Simply browse our collection, choose your desired product, and click the WhatsApp button to place your order directly with our team.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
- <section id="contact" class="contact section">
-  <h2>Get in Touch</h2>
-
-  <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
-    
-    <div class="form-group">
-      <label for="first-name">First Name</label>
-      <input type="text" id="first-name" name="first_name" placeholder="Your First Name" required />
-    </div>
-
-    <div class="form-group">
-      <label for="last-name">Last Name</label>
-      <input type="text" id="last-name" name="last_name" placeholder="Your Last Name" required />
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your Email" required />
-    </div>
-
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
-    <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
-
-    <button type="submit" class="submit-btn">Send Message</button>
-  </form>
-</section>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </section>
 
 
 
