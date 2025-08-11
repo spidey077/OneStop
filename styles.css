@@ -1,4 +1,4 @@
-:root {
+  :root {
       --main-bg: rgb(253, 249, 30);
       --black: #000;
       --white: #fff;
@@ -34,12 +34,8 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-
-
-
       nav {
-      background-color: rgba(255, 255, 0, 0.85); /* semi-transparent yellow */
+      background-color: rgba(255, 255, 0, 0.85);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -52,7 +48,7 @@
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: bold;
       color: black;
       padding-right: -100px;
@@ -62,11 +58,12 @@
 
   list-style: none;
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
   gap: 1.5rem;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  flex: 1;
 }
 
     ul li a {
@@ -392,32 +389,7 @@
       .footer-content{
         display:none;
       }
-   ul, .cta-btn1 {
-        display: none;
-      }
-
-     nav.active ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;       
-  align-items: center;            
-  background-color: rgba(255, 255, 0, 0.95);
-  position: absolute;
-  top: 0;                       
-  left: 0;
-  height: 100vh;                  
-  width: 100vw;                  
-  padding: 0;
-  margin: 0;
-  gap: 1rem;
-  animation: dropdown 0.3s ease forwards;
-}
-nav.active ul li {
-  font-size: 3rem; 
-  text-align: center;
-  font-weight: bolder;
-  margin-left: 15px;
-}
+  
 
 
 .dark-mode nav.active ul{
@@ -427,9 +399,7 @@ nav.active ul li {
       .dark-mode .hamburger span{
         background-color: white;
       }
-      .hamburger {
-        display: flex;
-      }
+     
 
       @keyframes dropdown {
         0% {
@@ -515,10 +485,10 @@ nav.active ul li {
 }
 .bullet-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 1rem 2rem;
   list-style: disc;
-  list-style-position: inside; /* bullet appears right before text */
+  list-style-position: inside; 
   padding: 0;
   margin: 1rem 0;
 }
@@ -529,8 +499,43 @@ nav.active ul li {
   line-height: 1.6;
 }
 
+@media (max-width: 1009px) {
+   .hamburger {
+        display: flex;
+      }
+  nav.active ul li {
+  font-size: 3rem; 
+  text-align: center;
+  font-weight: bolder;
+  margin-left: 15px;
+}
 
+   ul, .cta-btn1 {
+        display: none;
+      }
+
+     nav.active ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       
+  align-items: center;            
+  background-color: rgba(255, 255, 0, 0.95);
+  position: absolute;
+  top: 0;                       
+  left: 0;
+  height: 100vh;                  
+  width: 100vw;                  
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+  animation: dropdown 0.3s ease forwards;
+}
+
+}
     @media (max-width: 480px) {
+      .nav-search {
+  padding-right:30px;
+}
       .about-text p {
         font-size: 0.9rem;
       }
@@ -740,3 +745,45 @@ nav.active ul li {
       color: #555;
       line-height: 1.6;
     }
+.nav-search {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  position: relative;
+}
+
+.nav-search input {
+  width: 0;
+  opacity: 0;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: white;
+  position: absolute;
+  right: 65px;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+}
+
+.nav-search.active input {
+  width: 160px;
+  opacity: 1;
+}
+
+
+/* Search icon */
+.nav-search .search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  padding-right: 30px;
+  color: #333;
+}
+@media (max-width: 480px) {
+  .nav-search .search-icon {
+    display: none;
+  }
+}
