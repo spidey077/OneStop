@@ -90,13 +90,14 @@ searchInput.addEventListener('input', () => {
   }
 });
 
-// Close search when clicking outside
+// Close search when clicking outside (but keep results if any)
 document.addEventListener('click', () => {
   if (navSearch.classList.contains('active')) {
     navSearch.classList.remove('active');
-    resetPage();
+    // Do NOT resetPage() here — keep the filter applied
   }
 });
+
 
 function applyFilter(query) {
   // Hide everything except navbar and products section
@@ -122,3 +123,4 @@ function resetPage() {
   // Show all products
   products.forEach(product => product.style.display = '');
 }
+
