@@ -59,7 +59,9 @@ const products = document.querySelectorAll('.product-card');
 const allSections = document.querySelectorAll('main > section'); // all sections inside main
 const productsSection = document.querySelector('#products'); // your products section ID
 
-searchIcon.addEventListener('click', () => {
+searchIcon.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent triggering the outside click handler
+
   // If search box is already open and has text, apply filter + scroll
   if (navSearch.classList.contains('active') && searchInput.value.trim() !== '') {
     applyFilter(searchInput.value.toLowerCase().trim());
@@ -75,11 +77,23 @@ searchIcon.addEventListener('click', () => {
   }
 });
 
+searchInput.addEventListener('click', (e) => {
+  e.stopPropagation(); // so clicking inside doesn't close it
+});
+
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase().trim();
   if (query) {
     applyFilter(query);
   } else {
+    resetPage();
+  }
+});
+
+// Close search when clicking outside
+document.addEventListener('click', () => {
+  if (navSearch.classList.contains('active')) {
+    navSearch.classList.remove('active');
     resetPage();
   }
 });
