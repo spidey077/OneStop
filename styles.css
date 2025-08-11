@@ -386,10 +386,6 @@
     }
 
     @media (max-width: 768px) {
-      .footer-content{
-        display:none;
-      }
-  
 
 
 .dark-mode nav.active ul{
@@ -499,10 +495,14 @@
   line-height: 1.6;
 }
 
-@media (max-width: 1009px) {
+@media (max-width: 1030px) {
    .hamburger {
         display: flex;
       }
+        .footer-content{
+        display:none;
+      }
+  
   nav.active ul li {
   font-size: 3rem; 
   text-align: center;
@@ -787,3 +787,4 @@
     display: none;
   }
 }
+
