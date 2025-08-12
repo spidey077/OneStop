@@ -832,8 +832,9 @@ body.dark-mode .hero-subtitle {
     .hero-subtitle {
         font-size: 1.2rem;
         margin-top: 8px;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         letter-spacing: 0.8px;
         text-shadow: 1px 1px 4px rgba(0,0,0,0.18);
     }
 }
+
