@@ -645,7 +645,6 @@
     .dark-mode .logo {
       color: rgb(0, 0, 0);
     }
-
     .dark-mode .contact h2,
     .dark-mode nav .logo {
       color: white;
@@ -782,9 +781,13 @@
   padding-right: 30px;
   color: #333;
 }
+.dark-mode .nav-search .search-icon {
+  color: #f5f5f5;
+}
 @media (max-width: 480px) {
   .nav-search .search-icon {
     display: none;
   }
 }
+
 
