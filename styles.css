@@ -685,32 +685,48 @@
       color: #f5f5f5;
     }
 
-    .whatsapp-float {
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.3s ease;
+    .whatsapp-float,
+    .instagram-float,
+    .facebook-float {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366; /* WhatsApp default */
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+
+    .instagram-float {
+        background-color: #E1306C;
+        bottom: 80px;
+    }
+
+    .facebook-float {
+        background-color: #1877F3;
+        bottom: 140px;
     }
 
     .whatsapp-float:hover,
+    .instagram-float:hover,
+    .facebook-float:hover,
     .theme-toggle:hover {
-      transform: scale(1.1);
+        transform: scale(1.1);
     }
 
-    .whatsapp-float img {
-      width: 30px;
-      height: 30px;
+    .whatsapp-float img,
+    .instagram-float img,
+    .facebook-float img {
+        width: 30px;
+        height: 30px;
     }
 
     .faq {
