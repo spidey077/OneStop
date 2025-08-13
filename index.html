@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="canonical" href="https://onestopwholesale.vercel.app/" />
   <meta http-equiv="Content-Language" content="en" />
-<link rel="stylesheet" href="styles.css">  
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
   <nav id="navbar">
     <div class="logo">OneStop Wholesale</div>
-    
+
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -48,13 +48,29 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="#footer">Links</a></li>
     </ul>
-<div class="nav-search">
-  <button class="search-icon" aria-label="Search">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M21.53 20.47l-4.687-4.687a8.5 8.5 0 10-1.06 1.06l4.687 4.687a.75.75 0 101.06-1.06zM10.5 17a6.5 6.5 0 110-13 6.5 6.5 0 010 13z"/>
-    </svg>
-  </button>
-  <input type="text" id="product-search" placeholder="Search...">
+    <div class="nav-search">
+      <button class="search-icon" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M21.53 20.47l-4.687-4.687a8.5 8.5 0 10-1.06 1.06l4.687 4.687a.75.75 0 101.06-1.06zM10.5 17a6.5 6.5 0 110-13 6.5 6.5 0 010 13z" />
+        </svg>
+      </button>
+      <input type="text" id="product-search" placeholder="Search...">
+    </div>
+<div class="cart-container" id="cart-container">
+  <button id="cart-btn" class="cart-btn">
+  🛒
+  <span id="cart-count">0</span>
+</button>
+
+  <div class="cart-dropdown" id="cart-dropdown">
+    <h4>Your Cart</h4>
+    <div id="cart-items"></div>
+    <div class="cart-total">
+      <strong>Total: </strong> <span id="cart-total">0 RS</span>
+    </div>
+    <button id="place-order-btn">Place Order</button>
+  </div>
 </div>
 
     <a href="https://wa.me/3151073322" target="_blank">
@@ -75,77 +91,83 @@
   <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
 
 
- <section id="why-us" class="why-us">
-  <div class="container">
-    <div class="why-us-grid">
-      <div class="why-us-content">
-        <small class="eyebrow">Why Choose OS</small>
-        <h2 class="why-title">Fashion that looks great — and feels right</h2>
-        <p class="lead">
-          We deliver everyday essentials focused on durability, comfort, and timeless style.
-          Sourced from trusted partners and shipped quickly, our goal is to make stylish choices
-          easy and affordable for everyone.
-        </p>
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <div class="why-us-grid">
+        <div class="why-us-content">
+          <small class="eyebrow">Why Choose OS</small>
+          <h2 class="why-title">Fashion that looks great — and feels right</h2>
+          <p class="lead">
+            We deliver everyday essentials focused on durability, comfort, and timeless style.
+            Sourced from trusted partners and shipped quickly, our goal is to make stylish choices
+            easy and affordable for everyone.
+          </p>
 
-        <ul class="features-list" aria-hidden="false">
-          <li>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-            <div>
-              <strong>Carefully sourced fabrics</strong>
-              <span>Durable, breathable materials sourced from trusted suppliers and delivered to you.</span>
-            </div>
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.2 6.5L22 9l-5 4.8L18.4 22 12 18.6 5.6 22 7 13.8 2 9l6.8-0.5L12 2z"/></svg>
-            <div>
-              <strong>Versatile design</strong>
-              <span>Styles that work together and transition effortlessly from day to night.</span>
-            </div>
-          </li>
-          <li>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/><path d="M12 2v3"/></svg>
-            <div>
-              <strong>Affordable pricing</strong>
-              <span>Carefully priced and delivered with no compromise on style.</span>
-            </div>
-          </li>
-        </ul>
+          <ul class="features-list" aria-hidden="false">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" />
+              </svg>
+              <div>
+                <strong>Carefully sourced fabrics</strong>
+                <span>Durable, breathable materials sourced from trusted suppliers and delivered to you.</span>
+              </div>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2l3.2 6.5L22 9l-5 4.8L18.4 22 12 18.6 5.6 22 7 13.8 2 9l6.8-0.5L12 2z" />
+              </svg>
+              <div>
+                <strong>Versatile design</strong>
+                <span>Styles that work together and transition effortlessly from day to night.</span>
+              </div>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+                <path d="M12 2v3" />
+              </svg>
+              <div>
+                <strong>Affordable pricing</strong>
+                <span>Carefully priced and delivered with no compromise on style.</span>
+              </div>
+            </li>
+          </ul>
 
-        <div class="cta-row">
-         <a href="https://wa.me/3151073322" target="_blank">
-      <button class="cta-btn">Order Here</button>
-    </a>
-          <div class="trust">
-            <span class="trust-item">Fast delivery</span>
-            <span class="pipe">·</span>
-            <span class="trust-item">Easy returns</span>
+          <div class="cta-row">
+            <a href="https://wa.me/3151073322" target="_blank">
+              <button class="cta-btn">Order Here</button>
+            </a>
+            <div class="trust">
+              <span class="trust-item">Fast delivery</span>
+              <span class="pipe">·</span>
+              <span class="trust-item">Easy returns</span>
+            </div>
           </div>
         </div>
+
+        <figure class="why-us-media" aria-hidden="true">
+          <img src="/Main/logo.jpg" alt="OS collection — polo shirts and bags" loading="lazy">
+        </figure>
       </div>
 
-      <figure class="why-us-media" aria-hidden="true">
-        <!-- swap this with a lifestyle image of your products -->
-        <img src="/logo.jpg" alt="OS collection — polo shirts and bags" loading="lazy">
-      </figure>
-    </div>
 
-    <!-- Optional: feature cards row -->
-    <div class="cards-row">
-      <article class="card">
-        <h3>Quality assurance</h3>
-        <p>Each item is inspected and approved before delivery to ensure it meets our standards.</p>
-      </article>
-      <article class="card">
-        <h3>Ethical partners</h3>
-        <p>We work with trusted suppliers and focus on transparent sourcing.</p>
-      </article>
-      <article class="card">
-        <h3>Customer-first</h3>
-        <p>Support that responds quickly — designed around your satisfaction.</p>
-      </article>
+      <div class="cards-row">
+        <article class="card">
+          <h3>Quality assurance</h3>
+          <p>Each item is inspected and approved before delivery to ensure it meets our standards.</p>
+        </article>
+        <article class="card">
+          <h3>Ethical partners</h3>
+          <p>We work with trusted suppliers and focus on transparent sourcing.</p>
+        </article>
+        <article class="card">
+          <h3>Customer-first</h3>
+          <p>Support that responds quickly — designed around your satisfaction.</p>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="products">
     <h2>Products</h2>
@@ -157,9 +179,14 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Polo Shirt</h3>
+          <h3>Polo Shirt 1</h3>
           <div class="product-price">950 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Polo Shirt 1"
+  data-price="950"
+> Add to Cart </button>
+
       </div>
 
       <!-- Product 2 -->
@@ -169,9 +196,13 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Polo Shirt</h3>
+          <h3>Polo Shirt 2</h3>
           <div class="product-price">950 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Polo Shirt 2"
+  data-price="950"
+> Add to Cart </button>
       </div>
 
 
@@ -181,9 +212,13 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Polo Shirt</h3>
+          <h3>Polo Shirt 3</h3>
           <div class="product-price">950 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Polo Shirt 3"
+  data-price="950"
+> Add to Cart </button>
       </div>
 
       <!-- Product 3 -->
@@ -193,9 +228,13 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Checkered Shirt</h3>
+          <h3>Checkered Shirt 1</h3>
           <div class="product-price">3000 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Checkered Shirt 1"
+  data-price="3000"
+> Add to Cart </button>
       </div>
 
       <!-- Product 4 -->
@@ -205,9 +244,13 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Checkered Shirt</h3>
+          <h3>Checkered Shirt 2</h3>
           <div class="product-price">3000 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Checkered Shirt 2"
+  data-price="3000"
+> Add to Cart </button>
       </div>
       <div class="product-card">
         <div class="product-thumb">
@@ -215,9 +258,13 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Checkered Shirt</h3>
+          <h3>Checkered Shirt 3</h3>
           <div class="product-price">3000 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Checkered Shirt 3"
+  data-price="3000"
+> Add to Cart </button>
       </div>
 
 
@@ -228,9 +275,13 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Female Handbag</h3>
+          <h3>Female Handbag 1</h3>
           <div class="product-price">2800 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Female Handbag 1"
+  data-price="2800"
+> Add to Cart </button>
       </div>
       <div class="product-card">
         <div class="product-thumb">
@@ -238,23 +289,29 @@
           <a href="https://wa.me/3151073322" class="btn-overlay">Order via WhatsApp</a>
         </div>
         <div class="product-info">
-          <h3>Female Handbag</h3>
+          <h3>Female Handbag 2</h3>
           <div class="product-price">2800 RS</div>
         </div>
+        <button class="add-to-cart"
+  data-name="Female Handbag 2"
+  data-price="2800"
+> Add to Cart </button>
       </div>
 
 
     </div>
   </section>
-<a href="https://wa.me/3151073322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
-</a>
-<a href="https://www.instagram.com/onestopshoopp?fbclid=IwY2xjawLgL01leHRuA2FlbQIxMABicmlkETEwVEtpUGZuNWdPaEFGUXJoAR6EZxQnFQu7r3DYRJzMtd4hvR" class="instagram-float" target="_blank" aria-label="Visit Instagram">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram Icon" />
-</a>
-<a href="https://www.facebook.com/profile.php?id=100067395392274" class="facebook-float" target="_blank" aria-label="Visit Facebook">
-  <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook Icon" />
-</a>
+  <a href="https://wa.me/3151073322" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
+  </a>
+  <a href="https://www.instagram.com/onestopshoopp?fbclid=IwY2xjawLgL01leHRuA2FlbQIxMABicmlkETEwVEtpUGZuNWdPaEFGUXJoAR6EZxQnFQu7r3DYRJzMtd4hvR"
+    class="instagram-float" target="_blank" aria-label="Visit Instagram">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram Icon" />
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=100067395392274" class="facebook-float" target="_blank"
+    aria-label="Visit Facebook">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook Icon" />
+  </a>
 
   <section id="faq" class="faq section">
     <h2 style="margin-bottom: 20px;">FAQ</h2>
@@ -288,37 +345,41 @@
   </section>
 
 
-  <section id="contact" class="contact section">
-    <h2>Get in Touch</h2>
+  <section id="order" class="contact section">
+  <h2>Place Your Order</h2>
 
-    <form action="https://formsubmit.co/ha581741@gmail.com" method="POST">
+  <form id="order-form" action="https://formsubmit.co/ha581741@gmail.com" method="POST">
+    <div class="form-group">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" name="first_name" placeholder="Your First Name" required />
+    </div>
 
-      <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first_name" placeholder="Your First Name" required />
-      </div>
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" name="last_name" placeholder="Your Last Name" required />
+    </div>
 
-      <div class="form-group">
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last_name" placeholder="Your Last Name" required />
-      </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+    </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required />
-      </div>
+    <div class="form-group">
+      <label for="address">Delivery Address</label>
+      <textarea id="address" name="address" rows="3" placeholder="Your Address" required></textarea>
+    </div>
 
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-      </div>
-      <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
-      <input type="hidden" name="_autoresponse" value="Thank you for contacting us. We'll get back to you shortly!">
+    <div class="form-group">
+      <label for="message">Order Details</label>
+      <textarea id="message" name="message" rows="5" placeholder="Your order will appear here..." readonly required></textarea>
+    </div>
 
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </section>
+    <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
+    <input type="hidden" name="_autoresponse" value="Thank you for your order! We will contact you soon for confirmation.">
 
+    <button type="submit" class="submit-btn">Place Order</button>
+  </form>
+</section>
 
 
   <section class="footer section">
@@ -379,10 +440,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
