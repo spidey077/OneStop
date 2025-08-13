@@ -999,3 +999,126 @@
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.18);
     }
   }
+  .cart-container {
+    padding-right: 30px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .cart-btn {
+    background: none;
+    color: #ff9800;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .cart-btn:hover {
+    transform: scale(1.1);
+    color: #e68900;
+  }
+
+  #cart-count {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  }
+
+  .cart-dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    right: -20px;
+    top: 40px;
+    background: white;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+    padding: 12px;
+    z-index: 999;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+
+  .cart-dropdown.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cart-dropdown h4 {
+    margin-top: 0;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+  }
+
+  .cart-total {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  #place-order-btn {
+    width: 100%;
+    padding: 8px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  #place-order-btn:hover {
+    background: darkgreen;
+    transform: translateY(-2px);
+  }
+
+  #place-order-btn:active {
+    transform: translateY(0);
+  }
+
+  .add-to-cart {
+    display: block;
+    margin: 10px auto 0;
+    padding: 8px 14px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .add-to-cart:hover {
+    background-color: #e68a00;
+    transform: translateY(-2px);
+  }
+
+  .add-to-cart:active {
+    background: #cc7a00;
+    transform: translateY(0);
+  }
