@@ -10,6 +10,11 @@
     --radius: 14px;
     --max-width: 1100px;
     --container-gap: 24px;
+    --brand-1:#6c5ce7;   /* primary */
+    --brand-2:#00d2d3;   /* accent */
+    --brand-3:#ff9f43;   /* warm accent */
+    --ink:#0f172a;
+    --bg1:rgb(253, 249, 0);;   
   }
 
   #hero {
@@ -149,35 +154,141 @@
   }
 
 
-
-  .hero {
-    text-align: center;
-    padding: 60px 10% 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg') center/cover no-repeat;
-    color: yellow;
-    text-shadow: -1px -1px 0 black,
-      1px -1px 0 black,
-      -1px 1px 0 black,
-      1px 1px 0 black;
+ 
+  .hero{
+    position:relative;
+    isolation:isolate;
+    min-height:78vh;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    background: radial-gradient(1200px 600px at 10% 20%, rgba(108,92,231,.35), transparent 60%),
+                radial-gradient(900px 500px at 90% 80%, rgba(0,210,211,.28), transparent 60%),
+                radial-gradient(700px 400px at 70% 10%, rgba(255,159,67,.22), transparent 60%),
+                var(--bg1);
   }
 
-  .hero h1 {
-    font-size: clamp(2rem, 6vw, 70px);
-    margin-top: 25px;
-    line-height: 1.2;
-    margin-bottom: 10px;
+  /* Soft abstract blobs using mask + blend */
+  .hero::before{
+    content:"";
+    position:absolute; inset:-20%;
+    background:
+      radial-gradient(35% 28% at 20% 30%, rgba(255,255,255,.15), transparent 60%),
+      radial-gradient(30% 25% at 80% 60%, rgba(255,255,255,.10), transparent 55%),
+      conic-gradient(from 210deg at 50% 50%, rgba(255,255,255,.08), transparent 60%, rgba(255,255,255,.08));
+    filter: blur(40px) saturate(120%);
+    mix-blend-mode: screen;
+    pointer-events:none;
   }
 
-  @media (min-width: 769px) and (max-width: 1200px) {
-    .hero h1 {
-      margin-top: 20px;
-    }
+  /* Subtle film grain (tiny) */
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(to bottom right, rgba(255,255,255,.05), rgba(0,0,0,.05));
+    mix-blend-mode: overlay;
+    opacity:.25;
+    pointer-events:none;
   }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:#000000;
+    padding: clamp(24px, 4vw, 40px);
+  }
+  .hero-title{
+    font-size: clamp(28px, 5vw, 56px);
+    line-height:1.05;
+    letter-spacing:.5px;
+    margin:0 0 .35em;
+    text-shadow: 0 6px 30px rgba(0,0,0,.35);
+  }
+  .hero-sub{
+    font-size: clamp(14px, 2.2vw, 18px);
+    opacity:.9;
+    margin:0 0 1.25rem;
+  }
+  .product {
+  position: absolute;
+  z-index: 1;
+  width: clamp(140px, 18vw, 170px);
+  object-fit: contain;
+  transform: translate3d(0,0,0) rotate(var(--rot, 0deg));
+  mix-blend-mode: normal;
+
+  /* Rounded edges for non-PNGs */
+  border-radius: 14px;
+
+  /* Professional shadow & glow */
+  box-shadow: 0 14px 28px rgba(0,0,0,0.4), 
+              0 0 18px rgba(253,249,0,0.15);
+
+  /* Subtle inner highlight for depth */
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(2px);
+
+  /* Smooth hover animations */
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+
+  animation: float 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.dark-mode .hero-inner{
+  color: white;
+}
+.hero:hover .product {
+  transform: translate3d(calc(var(--px) * var(--m, 1)), calc(var(--py) * var(--m, 1)), 0)
+             rotate(var(--rot))
+             scale(1.03);
+  opacity: 0.95;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.45),
+              0 0 25px rgba(253,249,0,0.25);
+}
+
+/* Slight different depth for each */
+.p1 { top: 12%; left: 6%;  --rot:-6deg;  --m:.6; animation-delay: .2s; }
+.p2 { top: 18%; right: 8%; --rot: 8deg;  --m:.8; animation-delay: .8s; }
+.p3 { bottom: 8%; left: 14%; --rot: 4deg; --m:.5; animation-delay: 1.3s; }
+.p4 { bottom: 10%; right: 12%; --rot:-10deg; --m:.7; animation-delay: .5s; }
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0) rotate(var(--rot));
+  }
+  50% {
+    transform: translate3d(0px, -14px, 0) rotate(calc(var(--rot) * 0.9));
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 900px) {
+  .product { width: clamp(120px, 32vw, 220px); }
+  .p1 { top: 8%; left: -4%; }
+  .p2 { top: 10%; right: -2%; }
+  .p3 { bottom: 6%; left: 2%; }
+  .p4 { bottom: 4%; right: 0%; }
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .product { animation: none; }
+}
+
+
+
+/* For screens above 768px (tablet + desktop) */
+@media (max-width: 769px) {
+  #hero {
+    padding-top: 150px; /* adjust as needed */
+  }
+}
+
+
 
   .cta-btn {
     padding: 10px 20px;
@@ -637,6 +748,15 @@
     .theme-toggle {
       padding: 5px 10px;
     }
+
+
+     .hero{ min-height: 68vh; }
+    .product{ opacity:.9; filter: drop-shadow(0 10px 18px rgba(0,0,0,.4)); }
+    /* Stack closer so content remains readable */
+    .p1{ top: 6%; left: -10%; }
+    .p2{ top: 12%; right: -10%; }
+    .p3{ bottom: 8%; left: -6%; }
+    .p4{ bottom: 6%; right: -12%; }
   }
 
   @media (max-width: 1030px) {
