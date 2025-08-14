@@ -91,7 +91,7 @@
   <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
 
 
-  <section id="why-us" class="why-us">
+  <section id="why-us" class="why-us section">
     <div class="container">
       <div class="why-us-grid">
         <div class="why-us-content">
@@ -147,7 +147,7 @@
         </div>
 
         <figure class="why-us-media" aria-hidden="true">
-          <img src="/logo.jpg" alt="OS collection — polo shirts and bags" loading="lazy">
+          <img src="/Main/logo.jpg" alt="OS collection — polo shirts and bags" loading="lazy">
         </figure>
       </div>
 
@@ -335,7 +335,7 @@
   </section>
 
 
- <section id="order" class="contact section">
+  <section id="order" class="contact section">
   <h2>Place Your Order</h2>
 
   <form id="order-form" action="https://formsubmit.co/ha581741@gmail.com" method="POST">
@@ -364,7 +364,7 @@
       <textarea id="message" name="message" rows="5" placeholder="Your order will appear here..." readonly required></textarea>
     </div>
 
-    <!-- Removed _next to show FormSubmit's default success message -->
+    <input type="hidden" name="_next" value="https://onestopwholesale.vercel.app/thank-you.html">
     <input type="hidden" name="_autoresponse" value="Thank you for your order! We will contact you soon for confirmation.">
 
     <button type="submit" class="submit-btn">Place Order</button>
@@ -430,4 +430,3 @@
 </body>
 
 </html>
-
