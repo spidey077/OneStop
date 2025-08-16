@@ -437,22 +437,22 @@
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   }
+input,
+textarea {
+  padding: 14px 16px;
+  border-radius: 20px; /* fixed rounded corners */
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  color: inherit;
+}
 
-  input,
-  textarea {
-    padding: 14px 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    transition: border 0.3s ease;
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: var(--black);
-  }
-
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #c0f308; /* accent color */
+  box-shadow: 0 0 0 3px rgba(251, 255, 2, 0.849) /* subtle accent glow */
+}
   button.submit-btn {
     padding: 14px;
     background-color: var(--black);
@@ -1234,3 +1234,4 @@
     background: #cc7a00;
     transform: translateY(0);
   }
+
