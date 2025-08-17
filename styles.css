@@ -1158,6 +1158,7 @@ textarea:focus {
     right: -20px;
     top: 40px;
     background: white;
+    color: #000;
     border-radius: 8px;
     width: 300px;
     box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
