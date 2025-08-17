@@ -453,6 +453,8 @@ textarea:focus {
   border-color: #c0f308; /* accent color */
   box-shadow: 0 0 0 3px rgba(251, 255, 2, 0.849) /* subtle accent glow */
 }
+
+
   button.submit-btn {
     padding: 14px;
     background-color: var(--black);
@@ -1214,6 +1216,7 @@ textarea:focus {
   .add-to-cart {
     display: block;
     margin: 10px auto 0;
+    margin-bottom: 10px;
     padding: 8px 14px;
     background: #ff9800;
     color: white;
@@ -1234,4 +1237,3 @@ textarea:focus {
     background: #cc7a00;
     transform: translateY(0);
   }
-
