@@ -1,4 +1,4 @@
-# 🛍️ One Stop Wholesale – Product Landing Page
+# 🛍️ One Stop Shop – Product Landing Page
 
 A modern product landing page built for a wholesale brand to showcase items and make purchasing easy via WhatsApp.
 
