@@ -1,6 +1,6 @@
 const hamburger = document.getElementById("hamburger"), nav = document.getElementById("navbar"); hamburger.addEventListener("click", (() => { hamburger.classList.toggle("active"), nav.classList.toggle("active") })), document.addEventListener("click", (e => { nav.contains(e.target) || hamburger.contains(e.target) || (hamburger.classList.remove("active"), nav.classList.remove("active")), "A" === e.target.tagName && nav.classList.contains("active") && (hamburger.classList.remove("active"), nav.classList.remove("active")) })); const observer = new IntersectionObserver((e => { e.forEach((e => { e.isIntersecting && (e.target.classList.add("show"), observer.unobserve(e.target)) })) }), { threshold: .1 }); document.querySelectorAll(".section").forEach((e => { observer.observe(e) })), window.addEventListener("load", (function () { document.getElementById("loader").classList.add("hidden") })); const toggleBtn = document.getElementById("theme-toggle"), body = document.body, savedTheme = localStorage.getItem("theme"); "dark" === savedTheme && (body.classList.add("dark-mode"), toggleBtn.textContent = "☀️ Light Mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); toggleBtn.textContent = e ? "☀️ Light Mode" : "🌙 Dark Mode", localStorage.setItem("theme", e ? "dark" : "light") })); const searchIcon = document.querySelector(".search-icon"), navSearch = document.querySelector(".nav-search"), searchInput = document.getElementById("product-search"), products = document.querySelectorAll(".product-card"), allSections = document.querySelectorAll("main > section"), productsSection = document.querySelector("#products"); function applyFilter(e) { allSections.forEach((e => { e !== productsSection && (e.style.display = "none") })), productsSection.style.display = "block", products.forEach((t => { t.querySelector("h3").textContent.toLowerCase().includes(e) ? t.style.display = "" : t.style.display = "none" })) } function resetPage() { allSections.forEach((e => e.style.display = "")), products.forEach((e => e.style.display = "")) } searchIcon.addEventListener("click", (() => { navSearch.classList.contains("active") && "" !== searchInput.value.trim() ? (applyFilter(searchInput.value.toLowerCase().trim()), productsSection.scrollIntoView({ behavior: "smooth" })) : (navSearch.classList.toggle("active"), navSearch.classList.contains("active") ? searchInput.focus() : resetPage()) })), searchInput.addEventListener("input", (() => { const e = searchInput.value.toLowerCase().trim(); e ? applyFilter(e) : resetPage() }));
 
-// Ultra Premium Hero Parallax - Accurate Proximity
+// Parallax Stabilization & Reset Logic
 const hero = document.getElementById('hero');
 const heroProducts = document.querySelectorAll('.hero .product');
 
@@ -26,24 +26,34 @@ hero.addEventListener('mousemove', (e) => {
             closestCenterY = centerY;
         }
 
-        // Reset others
+        // Reset others smoothly (transition in CSS handles this)
         prod.style.setProperty('--mx', `0px`);
         prod.style.setProperty('--my', `0px`);
     });
 
-    if (closestProd) {
+    // Only move if within a reasonable proximity threshold
+    const threshold = 350;
+    if (closestProd && minDistance < threshold) {
         // Calculate offset from image center to mouse
-        let mx = (clientX - closestCenterX) * 0.2; // 20% of distance
-        let my = (clientY - closestCenterY) * 0.2;
+        let mx = (clientX - closestCenterX) * 0.15; // 15% intensity
+        let my = (clientY - closestCenterY) * 0.15;
 
-        // Clamp the movement to max 45px for elegance
-        const limit = 45;
+        // Clamp the movement
+        const limit = 40;
         mx = Math.max(-limit, Math.min(limit, mx));
         my = Math.max(-limit, Math.min(limit, my));
 
         closestProd.style.setProperty('--mx', `${mx}px`);
         closestProd.style.setProperty('--my', `${my}px`);
     }
+});
+
+// Smooth reset on leave
+hero.addEventListener('mouseleave', () => {
+    heroProducts.forEach(prod => {
+        prod.style.setProperty('--mx', `0px`);
+        prod.style.setProperty('--my', `0px`);
+    });
 });
 
 let cart = JSON.parse(localStorage.getItem("cart")) || []; const cartBtn = document.getElementById("cart-btn"), cartDropdown = document.getElementById("cart-dropdown"), cartCount = document.getElementById("cart-count"), cartItems = document.getElementById("cart-items"), cartTotal = document.getElementById("cart-total"), placeOrderBtn = document.getElementById("place-order-btn"), closeCartBtn = document.getElementById("close-cart");
@@ -137,5 +147,23 @@ document.querySelectorAll('.faq-question').forEach(question => {
         if (!isActive) {
             card.classList.add('active');
         }
+    });
+});
+
+// Back to Top Button Logic
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
