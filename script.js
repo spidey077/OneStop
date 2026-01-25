@@ -1,4 +1,52 @@
-const hamburger = document.getElementById("hamburger"), nav = document.getElementById("navbar"); hamburger.addEventListener("click", (() => { hamburger.classList.toggle("active"), nav.classList.toggle("active") })), document.addEventListener("click", (e => { nav.contains(e.target) || hamburger.contains(e.target) || (hamburger.classList.remove("active"), nav.classList.remove("active")), "A" === e.target.tagName && nav.classList.contains("active") && (hamburger.classList.remove("active"), nav.classList.remove("active")) })); const observer = new IntersectionObserver((e => { e.forEach((e => { e.isIntersecting && (e.target.classList.add("show"), observer.unobserve(e.target)) })) }), { threshold: .15 }); document.querySelectorAll(".section").forEach((e => { observer.observe(e) })), window.addEventListener("load", (function () { document.getElementById("loader").classList.add("hidden") })); const toggleBtn = document.getElementById("theme-toggle"), body = document.body, savedTheme = localStorage.getItem("theme"); "dark" === savedTheme && (body.classList.add("dark-mode"), toggleBtn.textContent = "☀️ Light Mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); toggleBtn.textContent = e ? "☀️ Light Mode" : "🌙 Dark Mode", localStorage.setItem("theme", e ? "dark" : "light") })); const searchIcon = document.querySelector(".search-icon"), navSearch = document.querySelector(".nav-search"), searchInput = document.getElementById("product-search"), products = document.querySelectorAll(".product-card"), allSections = document.querySelectorAll("main > section"), productsSection = document.querySelector("#products"); function applyFilter(e) { allSections.forEach((e => { e !== productsSection && (e.style.display = "none") })), productsSection.style.display = "block", products.forEach((t => { t.querySelector("h3").textContent.toLowerCase().includes(e) ? t.style.display = "" : t.style.display = "none" })) } function resetPage() { allSections.forEach((e => e.style.display = "")), products.forEach((e => e.style.display = "")) } searchIcon.addEventListener("click", (() => { navSearch.classList.contains("active") && "" !== searchInput.value.trim() ? (applyFilter(searchInput.value.toLowerCase().trim()), productsSection.scrollIntoView({ behavior: "smooth" })) : (navSearch.classList.toggle("active"), navSearch.classList.contains("active") ? searchInput.focus() : resetPage()) })), searchInput.addEventListener("input", (() => { const e = searchInput.value.toLowerCase().trim(); e ? applyFilter(e) : resetPage() })); let cart = JSON.parse(localStorage.getItem("cart")) || []; const cartBtn = document.getElementById("cart-btn"), cartDropdown = document.getElementById("cart-dropdown"), cartCount = document.getElementById("cart-count"), cartItems = document.getElementById("cart-items"), cartTotal = document.getElementById("cart-total"), placeOrderBtn = document.getElementById("place-order-btn"), closeCartBtn = document.getElementById("close-cart");
+const hamburger = document.getElementById("hamburger"), nav = document.getElementById("navbar"); hamburger.addEventListener("click", (() => { hamburger.classList.toggle("active"), nav.classList.toggle("active") })), document.addEventListener("click", (e => { nav.contains(e.target) || hamburger.contains(e.target) || (hamburger.classList.remove("active"), nav.classList.remove("active")), "A" === e.target.tagName && nav.classList.contains("active") && (hamburger.classList.remove("active"), nav.classList.remove("active")) })); const observer = new IntersectionObserver((e => { e.forEach((e => { e.isIntersecting && (e.target.classList.add("show"), observer.unobserve(e.target)) })) }), { threshold: .1 }); document.querySelectorAll(".section").forEach((e => { observer.observe(e) })), window.addEventListener("load", (function () { document.getElementById("loader").classList.add("hidden") })); const toggleBtn = document.getElementById("theme-toggle"), body = document.body, savedTheme = localStorage.getItem("theme"); "dark" === savedTheme && (body.classList.add("dark-mode"), toggleBtn.textContent = "☀️ Light Mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); toggleBtn.textContent = e ? "☀️ Light Mode" : "🌙 Dark Mode", localStorage.setItem("theme", e ? "dark" : "light") })); const searchIcon = document.querySelector(".search-icon"), navSearch = document.querySelector(".nav-search"), searchInput = document.getElementById("product-search"), products = document.querySelectorAll(".product-card"), allSections = document.querySelectorAll("main > section"), productsSection = document.querySelector("#products"); function applyFilter(e) { allSections.forEach((e => { e !== productsSection && (e.style.display = "none") })), productsSection.style.display = "block", products.forEach((t => { t.querySelector("h3").textContent.toLowerCase().includes(e) ? t.style.display = "" : t.style.display = "none" })) } function resetPage() { allSections.forEach((e => e.style.display = "")), products.forEach((e => e.style.display = "")) } searchIcon.addEventListener("click", (() => { navSearch.classList.contains("active") && "" !== searchInput.value.trim() ? (applyFilter(searchInput.value.toLowerCase().trim()), productsSection.scrollIntoView({ behavior: "smooth" })) : (navSearch.classList.toggle("active"), navSearch.classList.contains("active") ? searchInput.focus() : resetPage()) })), searchInput.addEventListener("input", (() => { const e = searchInput.value.toLowerCase().trim(); e ? applyFilter(e) : resetPage() }));
+
+// Ultra Premium Hero Parallax - Accurate Proximity
+const hero = document.getElementById('hero');
+const heroProducts = document.querySelectorAll('.hero .product');
+
+hero.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+
+    let closestProd = null;
+    let minDistance = Infinity;
+    let closestCenterX = 0;
+    let closestCenterY = 0;
+
+    heroProducts.forEach((prod) => {
+        const rect = prod.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const distance = Math.hypot(clientX - centerX, clientY - centerY);
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestProd = prod;
+            closestCenterX = centerX;
+            closestCenterY = centerY;
+        }
+
+        // Reset others
+        prod.style.setProperty('--mx', `0px`);
+        prod.style.setProperty('--my', `0px`);
+    });
+
+    if (closestProd) {
+        // Calculate offset from image center to mouse
+        let mx = (clientX - closestCenterX) * 0.2; // 20% of distance
+        let my = (clientY - closestCenterY) * 0.2;
+
+        // Clamp the movement to max 45px for elegance
+        const limit = 45;
+        mx = Math.max(-limit, Math.min(limit, mx));
+        my = Math.max(-limit, Math.min(limit, my));
+
+        closestProd.style.setProperty('--mx', `${mx}px`);
+        closestProd.style.setProperty('--my', `${my}px`);
+    }
+});
+
+let cart = JSON.parse(localStorage.getItem("cart")) || []; const cartBtn = document.getElementById("cart-btn"), cartDropdown = document.getElementById("cart-dropdown"), cartCount = document.getElementById("cart-count"), cartItems = document.getElementById("cart-items"), cartTotal = document.getElementById("cart-total"), placeOrderBtn = document.getElementById("place-order-btn"), closeCartBtn = document.getElementById("close-cart");
 
 function showNotification(message) {
     let notification = document.querySelector('.notification');
@@ -73,3 +121,21 @@ document.querySelectorAll(".add-to-cart").forEach((e => { e.addEventListener("cl
     }
     let t = e.map((e => `${e.name} - ${e.quantity} x ${e.price} RS`)).join("\n"), a = e.reduce(((e, t) => e + t.price * t.quantity), 0); document.getElementById("message").value = t + `\n\nTotal: ${a} RS\nPayment: Cash on Delivery`, document.querySelector("#order").scrollIntoView({ behavior: "smooth" }), cartDropdown.classList.remove("active")
 }));
+
+// FAQ Accordion Logic
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const card = question.parentElement;
+        const isActive = card.classList.contains('active');
+
+        // Close all cards first for accordion behavior
+        document.querySelectorAll('.faq-card').forEach(otherCard => {
+            otherCard.classList.remove('active');
+        });
+
+        // Toggle the clicked one
+        if (!isActive) {
+            card.classList.add('active');
+        }
+    });
+});
