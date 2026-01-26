@@ -20,34 +20,46 @@ const searchIcon = document.querySelector(".search-icon"),
 const originalProducts = Array.from(products);
 
 function applyFilter(query) {
-    let matchCount = 0;
     const isSearching = query.length > 0;
 
-    products.forEach(card => {
-        const title = card.querySelector("h3").textContent.toLowerCase();
-        if (title.includes(query)) {
-            card.style.display = "";
-            matchCount++;
-        } else {
-            card.style.display = "none";
-        }
-    });
+    // Smoothly update grid
+    productGrid.style.opacity = "0";
 
-    // Feedback for no results
-    if (isSearching && matchCount === 0) {
-        searchFeedback.innerHTML = `<p>No products found with keyword: <strong>"${query}"</strong></p>`;
-        searchFeedback.style.display = "block";
-    } else {
-        searchFeedback.style.display = "none";
-    }
+    setTimeout(() => {
+        let matchCount = 0;
+        products.forEach(card => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            if (title.includes(query)) {
+                card.style.display = "";
+                matchCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        // Feedback for no results
+        if (isSearching && matchCount === 0) {
+            searchFeedback.innerHTML = `<p>No products found with keyword: <strong>"${query}"</strong></p>`;
+            searchFeedback.style.display = "block";
+        } else {
+            searchFeedback.style.display = "none";
+        }
+
+        productGrid.style.opacity = "1";
+    }, 200);
 
     // Scroll to products section smoothly
     productsSection.scrollIntoView({ behavior: "smooth" });
 }
 
 function resetPage() {
-    products.forEach(card => card.style.display = "");
-    searchFeedback.style.display = "none";
+    productGrid.style.opacity = "0";
+
+    setTimeout(() => {
+        products.forEach(card => card.style.display = "");
+        searchFeedback.style.display = "none";
+        productGrid.style.opacity = "1";
+    }, 200);
 }
 
 // Trigger search on Icon Click or Enter Key
