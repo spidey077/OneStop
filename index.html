@@ -139,7 +139,27 @@
     </div>
   </section>
   <section id="products">
-    <h2>Products</h2>
+    <div class="section-header">
+      <h2>Products</h2>
+      <div class="product-sort">
+        <button id="sort-btn" class="sort-btn" aria-label="Sort products">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="21" y1="4" x2="14" y2="4"></line>
+            <line x1="21" y1="10" x2="17" y2="10"></line>
+            <line x1="21" y1="16" x2="20" y2="16"></line>
+            <polyline points="3 8 6 5 9 8"></polyline>
+            <line x1="6" y1="5" x2="6" y2="19"></line>
+          </svg>
+          <span id="sort-label">Sort by: Featured</span>
+        </button>
+        <div id="sort-options" class="sort-options">
+          <div class="sort-option" data-sort="featured">Featured</div>
+          <div class="sort-option" data-sort="low-high">Price: Low to High</div>
+          <div class="sort-option" data-sort="high-low">Price: High to Low</div>
+        </div>
+      </div>
+    </div>
     <div id="search-feedback" class="search-feedback"></div>
     <div class="product-grid">
 
