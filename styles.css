@@ -416,21 +416,117 @@
     transform-origin: left;
   }
 
-  .products {
-    padding: 70px 5%;
+  #products {
+    padding: 120px 5% 70px;
+  }
 
+  .section-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    min-height: 60px;
+    /* Ensure space for absolute elements */
   }
 
   #products h2 {
     font-size: 2rem;
-    padding-top: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 0;
     text-align: center;
+    flex: 1;
   }
 
+  .product-sort {
+    position: absolute;
+    right: 20px;
+    z-index: 100;
+  }
+
+  .sort-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .sort-btn:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .sort-options {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 200px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .product-sort.active .sort-options {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .sort-option {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    color: #444;
+  }
+
+  .sort-option:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+  }
+
+  .sort-option.active {
+    background: var(--primary);
+    color: #000;
+    font-weight: 600;
+  }
+
+  .dark-mode .sort-btn {
+    background: #333;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark-mode .sort-options {
+    background: #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark-mode .sort-option {
+    color: #ccc;
+  }
+
+  .dark-mode .sort-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
 
   .product-grid {
-    margin-top: 50px;
+    margin-top: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
     gap: 30px;
