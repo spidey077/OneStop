@@ -16,6 +16,9 @@ const searchIcon = document.querySelector(".search-icon"),
     allSections = document.querySelectorAll("section"),
     productsSection = document.querySelector("#products");
 
+// Store original order for "Featured" sorting
+const originalProducts = Array.from(products);
+
 function applyFilter(query) {
     let matchCount = 0;
     const isSearching = query.length > 0;
@@ -258,3 +261,63 @@ backToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// --- Product Sorting Logic ---
+const sortBtn = document.getElementById("sort-btn"),
+    sortOptions = document.getElementById("sort-options"),
+    sortOptionElements = document.querySelectorAll(".sort-option"),
+    sortLabel = document.getElementById("sort-label"),
+    productGrid = document.querySelector(".product-grid");
+
+sortBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sortBtn.parentElement.classList.toggle("active");
+});
+
+document.addEventListener("click", () => {
+    sortBtn.parentElement.classList.remove("active");
+});
+
+sortOptionElements.forEach(option => {
+    option.addEventListener("click", () => {
+        const sortType = option.dataset.sort;
+        const label = option.textContent;
+
+        sortLabel.textContent = `Sort by: ${label.replace('Price: ', '')}`;
+        sortBtn.parentElement.classList.remove("active");
+
+        // Update active class
+        sortOptionElements.forEach(opt => opt.classList.remove("active"));
+        option.classList.add("active");
+
+        sortProducts(sortType);
+    });
+});
+
+function sortProducts(type) {
+    let sortedArray = [];
+    const currentProducts = Array.from(document.querySelectorAll(".product-card"));
+
+    if (type === "featured") {
+        sortedArray = originalProducts;
+    } else {
+        sortedArray = currentProducts.sort((a, b) => {
+            const priceA = parseInt(a.querySelector(".add-to-cart").dataset.price);
+            const priceB = parseInt(b.querySelector(".add-to-cart").dataset.price);
+
+            if (type === "low-high") return priceA - priceB;
+            if (type === "high-low") return priceB - priceA;
+            return 0;
+        });
+    }
+
+    // Smoothly re-order grid
+    productGrid.style.opacity = "0";
+    setTimeout(() => {
+        sortedArray.forEach(item => productGrid.appendChild(item));
+        productGrid.style.opacity = "1";
+    }, 200);
+}
+
+// Ensure productGrid has transition
+productGrid.style.transition = "opacity 0.2s ease";
