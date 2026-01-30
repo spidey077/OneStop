@@ -139,6 +139,7 @@ const hero = document.getElementById('hero');
 const heroProducts = document.querySelectorAll('.hero .product');
 
 hero.addEventListener('mousemove', (e) => {
+    if (window.innerWidth <= 1030) return; // Disable parallax on mobile
     const { clientX, clientY } = e;
 
     let closestProd = null;
