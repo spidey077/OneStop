@@ -1,9 +1,37 @@
-const hamburger = document.getElementById("hamburger"), nav = document.getElementById("navbar");
-hamburger.addEventListener("click", (() => { hamburger.classList.toggle("active"), nav.classList.toggle("active") }));
-document.addEventListener("click", (e => { nav.contains(e.target) || hamburger.contains(e.target) || (hamburger.classList.remove("active"), nav.classList.remove("active")), "A" === e.target.tagName && nav.classList.contains("active") && (hamburger.classList.remove("active"), nav.classList.remove("active")) }));
+const hamburger = document.getElementById("hamburger"),
+    navLinks = document.getElementById("nav-links"),
+    navOverlay = document.getElementById("nav-overlay"),
+    body = document.body;
+
+function toggleMenu() {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    navOverlay.classList.toggle("active");
+    body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "";
+}
+
+hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+navOverlay.addEventListener("click", () => {
+    if (navLinks.classList.contains("active")) {
+        toggleMenu();
+    }
+});
+
+// Close menu on link click
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        if (navLinks.classList.contains("active")) {
+            toggleMenu();
+        }
+    });
+});
 const observer = new IntersectionObserver((e => { e.forEach((e => { e.isIntersecting && (e.target.classList.add("show"), observer.unobserve(e.target)) })) }), { threshold: .1 });
 document.querySelectorAll(".section").forEach((e => { observer.observe(e) })), window.addEventListener("load", (function () { document.getElementById("loader").classList.add("hidden") }));
-const toggleBtn = document.getElementById("theme-toggle"), body = document.body, savedTheme = localStorage.getItem("theme");
+const toggleBtn = document.getElementById("theme-toggle"), savedTheme = localStorage.getItem("theme");
 "dark" === savedTheme && (body.classList.add("dark-mode"), toggleBtn.textContent = "☀️ Light Mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); toggleBtn.textContent = e ? "☀️ Light Mode" : "🌙 Dark Mode", localStorage.setItem("theme", e ? "dark" : "light") }));
 
 // --- Improved Search Logic ---
