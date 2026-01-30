@@ -1040,8 +1040,9 @@
       z-index: 1002;
     }
 
-    .nav-search {
-      display: none;
+    .nav-search,
+    .search-icon {
+      display: none !important;
     }
 
     .hamburger {
@@ -1116,7 +1117,7 @@
     }
 
     .nav-links ul li a {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -1154,6 +1155,41 @@
   }
 
   @media (max-width: 480px) {
+    nav {
+      padding: 0.6rem 2%;
+    }
+
+    .logo {
+      font-size: 1rem;
+    }
+
+    .nav-actions {
+      gap: 0.6rem;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 16px;
+    }
+
+    .hamburger .bar {
+      height: 2.5px;
+    }
+
+    .cart-btn {
+      padding: 4px;
+    }
+
+    .cart-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    #cart-count {
+      font-size: 0.6rem;
+      padding: 1px 4px;
+    }
+
     .why-title {
       font-size: 1.5rem;
     }
