@@ -32,7 +32,7 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 const observer = new IntersectionObserver((e => { e.forEach((e => { e.isIntersecting && (e.target.classList.add("show"), observer.unobserve(e.target)) })) }), { threshold: .1 });
 document.querySelectorAll(".section").forEach((e => { observer.observe(e) })), window.addEventListener("load", (function () { document.getElementById("loader").classList.add("hidden") }));
 const toggleBtn = document.getElementById("theme-toggle"), savedTheme = localStorage.getItem("theme");
-"dark" === savedTheme && (body.classList.add("dark-mode"), toggleBtn.textContent = "☀️ Light Mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); toggleBtn.textContent = e ? "☀️ Light Mode" : "🌙 Dark Mode", localStorage.setItem("theme", e ? "dark" : "light") }));
+"dark" === savedTheme && body.classList.add("dark-mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); localStorage.setItem("theme", e ? "dark" : "light") }));
 
 // --- Improved Search Logic ---
 const searchIcon = document.querySelector(".search-icon"),
