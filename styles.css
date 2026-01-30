@@ -63,7 +63,9 @@
 
   nav {
     background-color: rgba(255, 255, 0, 0.85);
-    padding: 1rem 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,51 +73,58 @@
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
   }
 
   .logo {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 800;
     color: black;
     white-space: nowrap;
+    letter-spacing: -0.5px;
+    z-index: 1002;
   }
 
-  ul {
-
+  .nav-links ul {
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
     padding: 0;
-    margin: 0 auto;
-    flex: 1;
+    margin: 0;
   }
 
-  ul li a {
-    width: 200px;
-    margin-right: 30px;
+  .nav-links ul li a {
     text-decoration: none;
-    color: #333;
+    color: #111;
     font-size: 1rem;
+    font-weight: 500;
     position: relative;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 5px 0;
   }
 
-  ul li a::after {
+  .nav-links ul li a::after {
     content: '';
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
     left: 0;
     width: 0%;
     height: 2px;
     background-color: black;
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  ul li a:hover::after {
+  .nav-links ul li a:hover::after {
     width: 100%;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .cta-btn1 {
@@ -135,36 +144,37 @@
     border-color: black;
   }
 
+  /* Hamburger Menu */
   .hamburger {
     display: none;
     flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 30px;
-    height: 22px;
-    position: fixed;
-    right: 20px;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1002;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  .hamburger span {
+  .hamburger .bar {
+    width: 100%;
     height: 3px;
     background-color: black;
-    border-radius: 2px;
-    transition: 0.4s;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
   }
 
-  .hamburger.active span:nth-child(2) {
+  .hamburger.active .bar:nth-child(2) {
     opacity: 0;
+    transform: translateX(20px);
   }
 
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
   }
 
 
@@ -912,12 +922,16 @@
   @media (max-width: 768px) {
 
 
-    .dark-mode nav.active ul {
-      background-color: rgba(44, 44, 44, 0.95);
+    .dark-mode .nav-links {
+      background-color: rgba(20, 20, 20, 0.98);
       color: white;
     }
 
-    .dark-mode .hamburger span {
+    .dark-mode .nav-links ul li a {
+      color: white;
+    }
+
+    .dark-mode .hamburger .bar {
       background-color: white;
     }
 
@@ -1019,41 +1033,122 @@
       grid-template-columns: 1fr;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      z-index: 1002;
+    }
+
+    .nav-search {
+      display: none;
+    }
+
     .hamburger {
       display: flex;
+      margin-left: 0.5rem;
     }
 
-    .footer-content {
-      display: none;
-    }
-
-    nav.active ul li {
-      font-size: 3rem;
-      text-align: center;
-      font-weight: bolder;
-      margin-left: 15px;
-    }
-
-    ul,
-    .cta-btn1 {
-      display: none;
-    }
-
-    nav.active ul {
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background: rgba(255, 255, 0, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rgba(255, 255, 0, 0.95);
-      position: absolute;
+      transition: all 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+      z-index: 1001;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+      right: 0;
+    }
+
+    .nav-links ul {
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .nav-links ul li {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links.active ul li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Staggered animation for menu items */
+    .nav-links.active ul li:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    .nav-links.active ul li:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    .nav-links.active ul li:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .nav-links.active ul li:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+
+    .nav-links.active ul li:nth-child(5) {
+      transition-delay: 0.5s;
+    }
+
+    .nav-links.active ul li:nth-child(6) {
+      transition-delay: 0.6s;
+    }
+
+    .nav-links ul li a {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: black;
+    }
+
+    .nav-overlay {
+      position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
       height: 100vh;
-      width: 100vw;
-      padding: 0;
-      margin: 0;
-      gap: 1rem;
-      animation: dropdown 0.3s ease forwards;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s ease;
+      z-index: 1000;
+    }
+
+    .nav-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-cta,
+    .cta-btn1 {
+      display: none;
+    }
+
+    .footer-content {
+      display: none;
     }
 
   }
@@ -1065,10 +1160,6 @@
 
     .btn-primary {
       padding: 10px 14px;
-    }
-
-    .nav-search {
-      padding-right: 30px;
     }
 
     .contact {
@@ -1087,6 +1178,10 @@
     #loader p {
       display: none;
 
+    }
+
+    .nav-search {
+      display: none;
     }
 
   }
