@@ -29,8 +29,41 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         }
     });
 });
-const observer = new IntersectionObserver((e => { e.forEach((e => { e.isIntersecting && (e.target.classList.add("show"), observer.unobserve(e.target)) })) }), { threshold: .1 });
-document.querySelectorAll(".section").forEach((e => { observer.observe(e) })), window.addEventListener("load", (function () { document.getElementById("loader").classList.add("hidden") }));
+// --- Granular Scroll Animations ---
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            scrollObserver.unobserve(entry.target); // Animate only once
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px" // Trigger slightly before element is fully in view
+});
+
+// Elements to animate
+const animatedElements = document.querySelectorAll(`
+    h1, h2, h3, h4,
+    p,
+    .cta-btn,
+    .product-card,
+    .value-item,
+    .faq-card,
+    form,
+    .about-image,
+    .about-content
+`);
+
+animatedElements.forEach((el, index) => {
+    el.classList.add("animate-on-scroll");
+    // Optional: Add manual stagger index if needed, but CSS nth-child handles siblings well.
+    scrollObserver.observe(el);
+});
+
+window.addEventListener("load", () => {
+    document.getElementById("loader").classList.add("hidden");
+});
 const toggleBtn = document.getElementById("theme-toggle"), savedTheme = localStorage.getItem("theme");
 "dark" === savedTheme && body.classList.add("dark-mode"), toggleBtn.addEventListener("click", (() => { body.classList.toggle("dark-mode"); const e = body.classList.contains("dark-mode"); localStorage.setItem("theme", e ? "dark" : "light") }));
 
