@@ -304,16 +304,24 @@ document.querySelectorAll(".add-to-cart").forEach((e => { e.addEventListener("cl
 document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {
         const card = question.parentElement;
+        const answer = card.querySelector('.faq-answer');
         const isActive = card.classList.contains('active');
 
-        // Close all cards first for accordion behavior
+        // Close all other cards first for accordion behavior
         document.querySelectorAll('.faq-card').forEach(otherCard => {
-            otherCard.classList.remove('active');
+            if (otherCard !== card) {
+                otherCard.classList.remove('active');
+                otherCard.querySelector('.faq-answer').style.maxHeight = null;
+            }
         });
 
         // Toggle the clicked one
         if (!isActive) {
             card.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            card.classList.remove('active');
+            answer.style.maxHeight = null;
         }
     });
 });
