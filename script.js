@@ -167,62 +167,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Parallax Stabilization & Reset Logic
-const hero = document.getElementById('hero');
-const heroProducts = document.querySelectorAll('.hero .product');
-
-hero.addEventListener('mousemove', (e) => {
-    if (window.innerWidth <= 1030) return; // Disable parallax on mobile
-    const { clientX, clientY } = e;
-
-    let closestProd = null;
-    let minDistance = Infinity;
-    let closestCenterX = 0;
-    let closestCenterY = 0;
-
-    heroProducts.forEach((prod) => {
-        const rect = prod.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        const distance = Math.hypot(clientX - centerX, clientY - centerY);
-
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestProd = prod;
-            closestCenterX = centerX;
-            closestCenterY = centerY;
-        }
-
-        // Reset others smoothly (transition in CSS handles this)
-        prod.style.setProperty('--mx', `0px`);
-        prod.style.setProperty('--my', `0px`);
-    });
-
-    // Only move if within a reasonable proximity threshold
-    const threshold = 350;
-    if (closestProd && minDistance < threshold) {
-        // Calculate offset from image center to mouse
-        let mx = (clientX - closestCenterX) * 0.15; // 15% intensity
-        let my = (clientY - closestCenterY) * 0.15;
-
-        // Clamp the movement
-        const limit = 40;
-        mx = Math.max(-limit, Math.min(limit, mx));
-        my = Math.max(-limit, Math.min(limit, my));
-
-        closestProd.style.setProperty('--mx', `${mx}px`);
-        closestProd.style.setProperty('--my', `${my}px`);
-    }
-});
-
-// Smooth reset on leave
-hero.addEventListener('mouseleave', () => {
-    heroProducts.forEach(prod => {
-        prod.style.setProperty('--mx', `0px`);
-        prod.style.setProperty('--my', `0px`);
-    });
-});
+// Parallax Stabilization & Reset Logic Removed
 
 let cart = JSON.parse(localStorage.getItem("cart")) || []; const cartBtn = document.getElementById("cart-btn"), cartDropdown = document.getElementById("cart-dropdown"), cartCount = document.getElementById("cart-count"), cartItems = document.getElementById("cart-items"), cartTotal = document.getElementById("cart-total"), placeOrderBtn = document.getElementById("place-order-btn"), closeCartBtn = document.getElementById("close-cart");
 
@@ -284,7 +229,21 @@ closeCartBtn.addEventListener("click", (() => cartDropdown.classList.remove("act
 
 document.addEventListener("click", (e => { cartDropdown.classList.contains("active") && !cartDropdown.contains(e.target) && !cartBtn.contains(e.target) && cartDropdown.classList.remove("active") }));
 
-document.querySelectorAll(".add-to-cart").forEach((e => { e.addEventListener("click", (() => { const t = e.dataset.name, a = parseInt(e.dataset.price), n = cart.find((e => e.name === t)); n ? n.quantity++ : cart.push({ name: t, price: a, quantity: 1 }), updateCart(), showNotification(`${t} added to cart!`) })) })), updateCart(), document.getElementById("place-order-btn").addEventListener("click", (function () {
+// Event delegation for "Add to Cart"
+document.querySelector(".product-grid").addEventListener("click", (e) => {
+    const btn = e.target.closest(".add-to-cart");
+    if (btn) {
+        const t = btn.dataset.name,
+            a = parseInt(btn.dataset.price),
+            n = cart.find((item) => item.name === t);
+        n ? n.quantity++ : cart.push({ name: t, price: a, quantity: 1 });
+        updateCart();
+        showNotification(`${t} added to cart!`);
+    }
+});
+
+updateCart();
+document.getElementById("place-order-btn").addEventListener("click", (function () {
     let e = JSON.parse(localStorage.getItem("cart")) || []; if (0 === e.length) {
         let warning = document.querySelector('.cart-warning');
         if (!warning) {
@@ -300,30 +259,31 @@ document.querySelectorAll(".add-to-cart").forEach((e => { e.addEventListener("cl
     let t = e.map((e => `${e.name} - ${e.quantity} x ${e.price} RS`)).join("\n"), a = e.reduce(((e, t) => e + t.price * t.quantity), 0); document.getElementById("message").value = t + `\n\nTotal: ${a} RS\nPayment: Cash on Delivery`, document.querySelector("#order").scrollIntoView({ behavior: "smooth" }), cartDropdown.classList.remove("active")
 }));
 
-// FAQ Accordion Logic
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const card = question.parentElement;
-        const answer = card.querySelector('.faq-answer');
-        const isActive = card.classList.contains('active');
+// FAQ Accordion Logic with Event Delegation
+document.querySelector('.faq-container').addEventListener('click', (e) => {
+    const question = e.target.closest('.faq-question');
+    if (!question) return;
 
-        // Close all other cards first for accordion behavior
-        document.querySelectorAll('.faq-card').forEach(otherCard => {
-            if (otherCard !== card) {
-                otherCard.classList.remove('active');
-                otherCard.querySelector('.faq-answer').style.maxHeight = null;
-            }
-        });
+    const card = question.parentElement;
+    const answer = card.querySelector('.faq-answer');
+    const isActive = card.classList.contains('active');
 
-        // Toggle the clicked one
-        if (!isActive) {
-            card.classList.add('active');
-            answer.style.maxHeight = answer.scrollHeight + "px";
-        } else {
-            card.classList.remove('active');
-            answer.style.maxHeight = null;
+    // Close all other cards first for accordion behavior
+    document.querySelectorAll('.faq-card').forEach(otherCard => {
+        if (otherCard !== card) {
+            otherCard.classList.remove('active');
+            otherCard.querySelector('.faq-answer').style.maxHeight = null;
         }
     });
+
+    // Toggle the clicked one
+    if (!isActive) {
+        card.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+        card.classList.remove('active');
+        answer.style.maxHeight = null;
+    }
 });
 
 // Back to Top Button Logic
