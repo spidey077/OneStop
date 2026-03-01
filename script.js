@@ -167,33 +167,61 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// --- Custom Cursor Logic ---
+// --- Advanced Custom Cursor Logic ---
 const cursorDot = document.querySelector(".cursor-dot");
 const cursorOutline = document.querySelector(".cursor-outline");
 
+let mouseX = 0, mouseY = 0; // Mouse position
+let dotX = 0, dotY = 0; // Current dot position
+let outlineX = 0, outlineY = 0; // Current outline position
+
 window.addEventListener("mousemove", (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    // Movement
-    cursorDot.style.left = `${posX}px`;
-    cursorDot.style.top = `${posY}px`;
-
-    // Outline follows with a slight delay naturally due to CSS transition
-    cursorOutline.style.left = `${posX}px`;
-    cursorOutline.style.top = `${posY}px`;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 });
 
-// Cursor Hover Effects
+const lerp = (a, b, n) => (1 - n) * a + n * b;
+
+function animateCursor() {
+    // Smooth Lerp
+    dotX = lerp(dotX, mouseX, 0.2);
+    dotY = lerp(dotY, mouseY, 0.2);
+    outlineX = lerp(outlineX, mouseX, 0.1);
+    outlineY = lerp(outlineY, mouseY, 0.1);
+
+    document.documentElement.style.setProperty('--cursor-x', `${dotX}px`);
+    document.documentElement.style.setProperty('--cursor-y', `${dotY}px`);
+    document.documentElement.style.setProperty('--outline-x', `${outlineX}px`);
+    document.documentElement.style.setProperty('--outline-y', `${outlineY}px`);
+
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Cursor Hover Effects & Magnetic Elements
 const interactiveElements = document.querySelectorAll('a, button, .faq-question, .sort-option, .theme-toggle');
+const images = document.querySelectorAll('.product-thumb img, .about-image img, .hero-images img');
 
 interactiveElements.forEach(el => {
-    el.addEventListener("mouseenter", () => {
-        cursorOutline.classList.add("hovered");
+    el.addEventListener("mouseenter", () => cursorOutline.classList.add("hovered"));
+    el.addEventListener("mousemove", (e) => {
+        // Magnetic effect for specific elements
+        if (el.classList.contains('cta-btn1') || el.classList.contains('hamburger') || el.classList.contains('search-icon')) {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        }
     });
     el.addEventListener("mouseleave", () => {
         cursorOutline.classList.remove("hovered");
+        el.style.transform = "";
     });
+});
+
+images.forEach(img => {
+    img.addEventListener("mouseenter", () => cursorOutline.classList.add("image-hover"));
+    img.addEventListener("mouseleave", () => cursorOutline.classList.remove("image-hover"));
 });
 
 // Parallax Stabilization & Reset Logic Removed
