@@ -358,5 +358,55 @@ function sortProducts(type) {
 // Ensure productGrid has transition
 productGrid.style.transition = "opacity 0.2s ease";
 
+// --- Lightbox Modal Logic ---
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const closeBtn = document.querySelector(".close-modal");
+
+function openModal(src, alt) {
+    modal.style.display = "flex";
+    setTimeout(() => {
+        modal.classList.add("show");
+        modalImg.src = src;
+        modalImg.alt = alt;
+    }, 10);
+    body.style.overflow = "hidden"; // Prevent scrolling
+}
+
+function closeModal() {
+    modal.classList.remove("show");
+    setTimeout(() => {
+        modal.style.display = "none";
+        modalImg.src = ""; // Clear src
+    }, 400);
+    body.style.overflow = ""; // Re-enable scrolling
+}
+
+// Add click listeners to product images
+document.querySelectorAll(".product-thumb img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openModal(img.src, img.alt);
+    });
+});
+
+// Close modal on button click
+closeBtn.addEventListener("click", closeModal);
+
+// Close modal on background click
+modal.addEventListener("click", (e) => {
+    if (e.target === modal || e.target.classList.contains('modal-content-wrapper')) {
+        closeModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+        closeModal();
+    }
+});
+
 
 
