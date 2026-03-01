@@ -357,3 +357,6 @@ function sortProducts(type) {
 
 // Ensure productGrid has transition
 productGrid.style.transition = "opacity 0.2s ease";
+
+
+
