@@ -24,6 +24,8 @@
 </head>
 
 <body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
   <div id="loader">
     <div class="loader-content">
       <div class="spinner"></div>
@@ -59,32 +61,7 @@
         <button id="clear-search" class="clear-search" aria-label="Clear search">&times;</button>
       </div>
 
-      <div class="cart-container" id="cart-container">
-        <button id="cart-btn" class="cart-btn" aria-label="View Cart">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 0 0 0 2-1.61L23 6H6"></path>
-          </svg>
-          <span id="cart-count">0</span>
-        </button>
 
-        <div class="cart-dropdown" id="cart-dropdown">
-          <div class="cart-header">
-            <h4>Your Shopping Cart</h4>
-            <button id="close-cart" class="close-cart-btn">&times;</button>
-          </div>
-          <div id="cart-items" class="cart-items-container"></div>
-          <div class="cart-footer">
-            <div class="cart-total">
-              <span>Total Amount</span>
-              <span id="cart-total">0 RS</span>
-            </div>
-            <button id="place-order-btn" class="place-order-btn">Checkout Now</button>
-          </div>
-        </div>
-      </div>
 
       <a href="https://wa.me/3151073322" target="_blank" class="nav-cta">
         <button class="cta-btn1">Shop Now</button>

@@ -167,6 +167,35 @@ document.addEventListener("click", (e) => {
     }
 });
 
+// --- Custom Cursor Logic ---
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
+
+window.addEventListener("mousemove", (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+
+    // Movement
+    cursorDot.style.left = `${posX}px`;
+    cursorDot.style.top = `${posY}px`;
+
+    // Outline follows with a slight delay naturally due to CSS transition
+    cursorOutline.style.left = `${posX}px`;
+    cursorOutline.style.top = `${posY}px`;
+});
+
+// Cursor Hover Effects
+const interactiveElements = document.querySelectorAll('a, button, .faq-question, .sort-option, .theme-toggle');
+
+interactiveElements.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+        cursorOutline.classList.add("hovered");
+    });
+    el.addEventListener("mouseleave", () => {
+        cursorOutline.classList.remove("hovered");
+    });
+});
+
 // Parallax Stabilization & Reset Logic Removed
 
 // --- Navbar Scroll Behavior ---
@@ -281,8 +310,8 @@ function sortProducts(type) {
         sortedArray = originalProducts;
     } else {
         sortedArray = currentProducts.sort((a, b) => {
-            const priceA = parseInt(a.querySelector(".add-to-cart").dataset.price);
-            const priceB = parseInt(b.querySelector(".add-to-cart").dataset.price);
+            const priceA = parseInt(a.querySelector(".product-price").textContent.replace(/[^\d]/g, ''));
+            const priceB = parseInt(b.querySelector(".product-price").textContent.replace(/[^\d]/g, ''));
 
             if (type === "low-high") return priceA - priceB;
             if (type === "high-low") return priceB - priceA;
