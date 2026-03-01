@@ -169,6 +169,33 @@ document.addEventListener("click", (e) => {
 
 // Parallax Stabilization & Reset Logic Removed
 
+// --- Navbar Scroll Behavior ---
+let lastScrollTop = 0;
+const navbar = document.querySelector('nav');
+const scrollThreshold = 100; // Threshold before navbar starts hiding
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Scrolled state (background change)
+    if (scrollTop > 50) {
+        navbar.classList.add('nav-scrolled');
+    } else {
+        navbar.classList.remove('nav-scrolled');
+    }
+
+    // Hide/Show on scroll
+    if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+        // Scrolling down
+        navbar.classList.add('nav-hidden');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('nav-hidden');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, { passive: true });
+
 // --- FAQ Accordion Logic with Event Delegation ---
 document.querySelector('.faq-container').addEventListener('click', (e) => {
     const question = e.target.closest('.faq-question');
