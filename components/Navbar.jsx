@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { SignInButton, UserButton, useAuth } from '@clerk/nextjs';
 
 export default function Navbar({ searchQuery, setSearchQuery }) {
   const [menuActive, setMenuActive] = useState(false);
   const [searchActive, setSearchActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const { isSignedIn } = useAuth();
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -89,6 +91,16 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
         <a href="https://wa.me/3151073322" target="_blank" rel="noreferrer" className="nav-cta">
           <button className="cta-btn1">Shop Now</button>
         </a>
+
+        <div className="auth-buttons" style={{ marginLeft: "10px", display: "flex", alignItems: "center" }}>
+          {isSignedIn ? (
+            <UserButton afterSignOutUrl="/" />
+          ) : (
+            <SignInButton mode="modal">
+              <button className="cta-btn1" style={{ padding: "8px 16px", background: "var(--light-bg)", color: "var(--text-color)", border: "1px solid var(--border-color)", cursor: "pointer", borderRadius: "20px" }}>Login</button>
+            </SignInButton>
+          )}
+        </div>
 
         <div className={`hamburger ${menuActive ? "active" : ""}`} id="hamburger" onClick={toggleMenu}>
           <div className="bar"></div>

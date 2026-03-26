@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 import ThemeToggle from "@/components/ThemeToggle";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollAnimations from "@/components/ScrollAnimations";
@@ -38,15 +39,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <CustomCursor />
-        {/* We keep the loader if it matches existing styles, or remove it in React since React handles rendering smoothly */}
-        {/* <div id="loader" className="hidden"><div className="loader-content"><div className="spinner"></div><p>LOADING THE STORE ...</p></div></div> */}
+      <ClerkProvider>
+        <body className={poppins.className}>
+          <CustomCursor />
+          {/* We keep the loader if it matches existing styles, or remove it in React since React handles rendering smoothly */}
+          {/* <div id="loader" className="hidden"><div className="loader-content"><div className="spinner"></div><p>LOADING THE STORE ...</p></div></div> */}
         
         <ThemeToggle />
         <ScrollAnimations />
         {children}
-      </body>
+        </body>
+      </ClerkProvider>
     </html>
   );
 }
