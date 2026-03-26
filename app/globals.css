@@ -1274,8 +1274,7 @@
       pointer-events: auto;
     }
 
-    .nav-cta,
-    .cta-btn1 {
+    .nav-cta {
       display: none;
     }
 
