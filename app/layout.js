@@ -4,6 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import ThemeToggle from "@/components/ThemeToggle";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollAnimations from "@/components/ScrollAnimations";
+import { CartProvider } from "@/components/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -41,13 +43,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ClerkProvider>
         <body className={poppins.className}>
-          <CustomCursor />
-          {/* We keep the loader if it matches existing styles, or remove it in React since React handles rendering smoothly */}
-          {/* <div id="loader" className="hidden"><div className="loader-content"><div className="spinner"></div><p>LOADING THE STORE ...</p></div></div> */}
-        
-        <ThemeToggle />
-        <ScrollAnimations />
-        {children}
+          <CartProvider>
+            <CustomCursor />
+            <ThemeToggle />
+            <ScrollAnimations />
+            {children}
+            <CartDrawer />
+          </CartProvider>
         </body>
       </ClerkProvider>
     </html>

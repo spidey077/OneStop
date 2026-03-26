@@ -1,6 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SignInButton, UserButton, useAuth } from '@clerk/nextjs';
+import { useCart } from './CartContext';
 
 export default function Navbar({ searchQuery, setSearchQuery }) {
   const [menuActive, setMenuActive] = useState(false);
@@ -8,6 +9,18 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { isSignedIn } = useAuth();
+  const { cartCount, setIsCartOpen } = useCart();
+  const searchRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchActive(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -62,7 +75,7 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
       <div className={`nav-overlay ${menuActive ? "active" : ""}`} id="nav-overlay" onClick={toggleMenu}></div>
 
       <div className="nav-actions">
-        <div className={`nav-search ${searchActive ? "active" : ""}`}>
+        <div className={`nav-search ${searchActive ? "active" : ""}`} ref={searchRef}>
           <button className="search-icon" aria-label="Search" onClick={() => {
               if (!searchActive) setSearchActive(true);
               else handleSearchAction();
@@ -88,13 +101,39 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
           }}>&times;</button>
         </div>
 
-        <a href="https://wa.me/3151073322" target="_blank" rel="noreferrer" className="nav-cta">
-          <button className="cta-btn1">Shop Now</button>
-        </a>
+        {isSignedIn && (
+          <button 
+            className="cart-nav-btn" 
+            onClick={() => setIsCartOpen(true)} 
+            style={{ 
+              background: "transparent", 
+              border: "none", 
+              color: "var(--text-color)", 
+              display: "flex", 
+              alignItems: "center", 
+              justifyContent: "center",
+              position: "relative",
+              cursor: "pointer",
+              transition: "transform 0.2s ease"
+            }}
+            aria-label="Open Cart"
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            {cartCount > 0 && <span className="cart-badge" style={{ top: "-2px", right: "-4px" }}>{cartCount}</span>}
+          </button>
+        )}
 
-        <div className="auth-buttons" style={{ marginLeft: "10px", display: "flex", alignItems: "center" }}>
+        <div className="auth-buttons" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           {isSignedIn ? (
-            <UserButton afterSignOutUrl="/" />
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%" }}>
+              <UserButton afterSignOutUrl="/" />
+            </div>
           ) : (
             <SignInButton mode="modal">
               <button className="cta-btn1" style={{ padding: "8px 16px", background: "var(--light-bg)", color: "var(--text-color)", border: "1px solid var(--border-color)", cursor: "pointer", borderRadius: "20px" }}>Login</button>

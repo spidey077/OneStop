@@ -1,5 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useAuth } from "@clerk/nextjs";
+import { supabase } from "../lib/supabaseClient";
+import { useCart } from "./CartContext";
 
 const productsData = [
   { id: 1, name: "Polo Shirt 1", price: 950, img: "/poloshirt.jpg", orderUrl: "Polo+Shirt+1" },
@@ -18,6 +21,9 @@ export default function Products({ searchQuery }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState({ src: "", alt: "" });
   const [mounted, setMounted] = useState(false);
+  const { userId } = useAuth();
+  const [loadingProductId, setLoadingProductId] = useState(null);
+  const { showToast, notifyCartUpdated } = useCart();
 
   useEffect(() => setMounted(true), []);
 
@@ -63,6 +69,54 @@ export default function Products({ searchQuery }) {
         setModalImage({ src: "", alt: "" });
     }, 400); // Wait for transition
     document.body.style.overflow = "";
+  };
+
+  const addToCart = async (product) => {
+    if (!userId) {
+      alert("Please sign in to add items to your cart.");
+      return;
+    }
+    setLoadingProductId(product.id);
+    
+    // Check if item already in cart
+    const { data: existingCart } = await supabase
+      .from('carts')
+      .select('*')
+      .eq('user_id', userId)
+      .eq('product_name', product.name)
+      .single();
+      
+    if (existingCart) {
+      // Update quantity
+      const { error } = await supabase
+        .from('carts')
+        .update({ quantity: existingCart.quantity + 1 })
+        .eq('id', existingCart.id);
+        
+      if (error) showToast("Error adding to cart");
+      else {
+        showToast("Added another to cart!");
+        notifyCartUpdated();
+      }
+    } else {
+      // Insert new
+      const { error } = await supabase
+        .from('carts')
+        .insert([{
+          user_id: userId,
+          product_name: product.name,
+          product_price: product.price,
+          product_image: product.img,
+          quantity: 1
+        }]);
+        
+      if (error) showToast("Error adding to cart");
+      else {
+        showToast("Product added to cart!");
+        notifyCartUpdated();
+      }
+    }
+    setLoadingProductId(null);
   };
 
   useEffect(() => {
@@ -133,8 +187,15 @@ export default function Products({ searchQuery }) {
                 <h3>{product.name}</h3>
                 <div className="product-price">{product.price} RS</div>
               </div>
-              <a href={`https://wa.me/3151073322?text=Hi%21+I+would+like+to+order+${product.orderUrl}`} target="_blank" rel="noreferrer"
-                className="wa-order-btn">Order on WhatsApp</a>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '8px' }}>
+                <button 
+                  onClick={() => addToCart(product)} 
+                  disabled={loadingProductId === product.id}
+                  className="wa-order-btn action-btn text-truncate"
+                  style={{ width: '85%', margin: 0, padding: '10px 6px', fontSize: '0.9rem', cursor: loadingProductId === product.id ? 'not-allowed' : 'pointer', opacity: loadingProductId === product.id ? 0.7 : 1 }}>
+                  {loadingProductId === product.id ? 'Wait...' : 'Add to Cart'}
+                </button>
+              </div>
             </div>
           ))}
         </div>
