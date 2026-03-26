@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
 import { supabase } from "../lib/supabaseClient";
 import { useCart } from "./CartContext";
+import toast from "react-hot-toast";
 
 const productsData = [
   { id: 1, name: "Polo Shirt 1", price: 950, img: "/poloshirt.jpg", orderUrl: "Polo+Shirt+1" },
@@ -73,7 +74,7 @@ export default function Products({ searchQuery }) {
 
   const addToCart = async (product) => {
     if (!userId) {
-      alert("Please sign in to add items to your cart.");
+      toast.error("Please sign in to add items to your cart.");
       return;
     }
     setLoadingProductId(product.id);

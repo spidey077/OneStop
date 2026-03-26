@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useCart } from "./CartContext";
 import { supabase } from "../lib/supabaseClient";
+import toast from "react-hot-toast";
 
 export default function CartDrawer() {
   const { isCartOpen, setIsCartOpen, cartItems, fetchCartItems, notifyCartUpdated } = useCart();
@@ -21,8 +22,9 @@ export default function CartDrawer() {
     const { error } = await supabase.from("carts").delete().eq("id", id);
     if (!error) {
       notifyCartUpdated();
+      toast.success("Item removed from cart");
     } else {
-        alert("Failed to remove item.");
+        toast.error("Failed to remove item.");
     }
     setRemovingId(null);
   };
