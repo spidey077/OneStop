@@ -6,7 +6,7 @@ import CustomCursor from "@/components/CustomCursor";
 import ScrollAnimations from "@/components/ScrollAnimations";
 import { CartProvider } from "@/components/CartContext";
 import CartDrawer from "@/components/CartDrawer";
-import { Toaster } from "react-hot-toast";
+import ToastProvider from "@/components/ToastProvider";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ClerkProvider>
         <body className={poppins.className}>
-          <Toaster position="top-center" />
+          <ToastProvider />
           <CartProvider>
             <CustomCursor />
             <ThemeToggle />

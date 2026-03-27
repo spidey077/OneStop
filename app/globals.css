@@ -518,6 +518,22 @@
     background-color: #fff;
   }
 
+  .cursor-dot.light-mode-cursor,
+  .dark-mode .cursor-dot.light-mode-cursor {
+    background-color: #fff !important;
+  }
+
+  .cursor-outline.light-mode-cursor,
+  .dark-mode .cursor-outline.light-mode-cursor {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .cursor-outline.hovered.light-mode-cursor,
+  .dark-mode .cursor-outline.hovered.light-mode-cursor {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #fff !important;
+  }
+
   .dark-mode .cursor-outline {
     border-color: rgba(255, 255, 255, 0.4);
   }
@@ -673,7 +689,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease, opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
   }
 
@@ -2340,4 +2356,13 @@
 
 .dark-mode .cart-item-price {
   color: #ccc;
+}
+
+/* --- Dark Mode Overrides --- */
+.dark-mode .faq h2 {
+  color: #fff !important;
+}
+
+.dark-mode nav.nav-scrolled {
+  background-color: #050505 !important;
 }

@@ -13,6 +13,17 @@ export default function CustomCursor() {
     const handleMouseMove = (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
+        
+        if (e.target && typeof e.target.closest === 'function') {
+           const footer = e.target.closest('footer, .footer');
+           if (footer) {
+             cursorDot?.classList.add("light-mode-cursor");
+             cursorOutline?.classList.add("light-mode-cursor");
+           } else {
+             cursorDot?.classList.remove("light-mode-cursor");
+             cursorOutline?.classList.remove("light-mode-cursor");
+           }
+        }
     };
     window.addEventListener("mousemove", handleMouseMove);
 
@@ -68,15 +79,29 @@ export default function CustomCursor() {
       }
     };
 
+    const handleMouseOver = (e) => {
+      if (!e.target || typeof e.target.closest !== 'function') return;
+      const footer = e.target.closest('footer, .footer');
+      if (footer) {
+        cursorDot?.classList.add("light-mode-cursor");
+        cursorOutline?.classList.add("light-mode-cursor");
+      } else {
+        cursorDot?.classList.remove("light-mode-cursor");
+        cursorOutline?.classList.remove("light-mode-cursor");
+      }
+    };
+
     document.addEventListener("mouseenter", handleMouseEnter, true);
     document.addEventListener("mouseleave", handleMouseLeave, true);
     document.addEventListener("mousemove", handleInteractiveMove, true);
+    document.addEventListener("mouseover", handleMouseOver, true);
 
     return () => {
         window.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseenter", handleMouseEnter, true);
         document.removeEventListener("mouseleave", handleMouseLeave, true);
         document.removeEventListener("mousemove", handleInteractiveMove, true);
+        document.removeEventListener("mouseover", handleMouseOver, true);
         cancelAnimationFrame(animationFrameId);
     };
   }, []);

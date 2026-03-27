@@ -16,14 +16,25 @@ export default function ScrollAnimations() {
         rootMargin: "0px 0px -50px 0px"
     });
 
-    const animatedElements = document.querySelectorAll(`
-        h1, h2, h3, h4, p, .cta-btn, .product-card, .value-item, .faq-card, form, .about-image, .about-content
-    `);
+    const selector = "h1, h2, h3, h4, p, .cta-btn, .product-card, .value-item, .faq-card, form, .about-image, .about-content";
+    
+    const observeElements = () => {
+        const animatedElements = document.querySelectorAll(selector);
+        animatedElements.forEach((el) => {
+            if (!el.classList.contains("animate-on-scroll")) {
+                el.classList.add("animate-on-scroll");
+                scrollObserver.observe(el);
+            }
+        });
+    };
 
-    animatedElements.forEach((el) => {
-        el.classList.add("animate-on-scroll");
-        scrollObserver.observe(el);
+    observeElements();
+
+    const domObserver = new MutationObserver(() => {
+        observeElements();
     });
+
+    domObserver.observe(document.body, { childList: true, subtree: true });
 
     // Back to top button logic
     const handleScroll = () => {
@@ -39,6 +50,8 @@ export default function ScrollAnimations() {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
+        domObserver.disconnect();
+        const animatedElements = document.querySelectorAll(selector);
         animatedElements.forEach(el => scrollObserver.unobserve(el));
         window.removeEventListener('scroll', handleScroll);
     };

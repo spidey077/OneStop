@@ -176,7 +176,6 @@ export default function Products({ searchQuery }) {
                 <img 
                     src={product.img} 
                     alt={product.name} 
-                    loading="lazy" 
                     style={{ cursor: "zoom-in" }}
                     onClick={(e) => {
                         e.stopPropagation();
