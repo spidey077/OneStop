@@ -18,7 +18,7 @@ export default function Footer() {
           backgroundColor: "#050505", 
           color: "#e2e8f0", 
           padding: "80px 5% 40px", 
-          fontSize: "1rem",
+          fontSize: "0.9rem",
           fontWeight: "300",
           borderTop: "1px solid #1a1a1a"
         }}>
@@ -26,7 +26,7 @@ export default function Footer() {
             
             {/* Brand Section */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <h3 style={{ fontSize: "1.8rem", fontWeight: "700", color: "#ffffff", letterSpacing: "-0.5px", margin: 0 }}>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: "700", color: "#ffffff", letterSpacing: "-0.5px", margin: 0 }}>
                 OneStop <span style={{ color: "yellow" }}>Wholesale</span>
               </h3>
               <p style={{ color: "#94a3b8", lineHeight: "1.8", margin: 0 }}>
@@ -36,7 +36,7 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#ffffff", marginBottom: "25px", textTransform: "uppercase", letterSpacing: "1px" }}>Quick Links</h4>
+              <h4 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#ffffff", marginBottom: "25px", textTransform: "uppercase", letterSpacing: "1px" }}>Quick Links</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "15px" }}>
                 <li><a href="#hero" className="footer-link">Home Background</a></li>
                 <li><a href="#why-us" className="footer-link">Why Choose Us</a></li>
@@ -47,7 +47,7 @@ export default function Footer() {
 
             {/* Support Links */}
             <div>
-              <h4 style={{ fontSize: "1.2rem", fontWeight: "600", color: "#ffffff", marginBottom: "25px", textTransform: "uppercase", letterSpacing: "1px" }}>Customer Care</h4>
+              <h4 style={{ fontSize: "1.05rem", fontWeight: "600", color: "#ffffff", marginBottom: "25px", textTransform: "uppercase", letterSpacing: "1px" }}>Customer Care</h4>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "15px" }}>
                 <li><a href="#" className="footer-link">Shipping & Delivery</a></li>
                 <li><a href="#" className="footer-link">Return Policy</a></li>
@@ -86,10 +86,10 @@ export default function Footer() {
             </div>
 
             <div style={{ textAlign: "center", color: "#64748b" }}>
-              <p style={{ margin: "0 0 5px" }}>
+              <p style={{ margin: "0 0 5px", fontSize: "0.9rem" }}>
                 &copy; {new Date().getFullYear()} OneStop Wholesale. All rights reserved.
               </p>
-              <p style={{ margin: 0, fontSize: "0.9rem" }}>
+              <p style={{ margin: 0, fontSize: "0.8rem" }}>
                 Fashion that shapes your choice.
               </p>
             </div>
