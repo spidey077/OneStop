@@ -59,7 +59,10 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
 
   return (
     <nav id="navbar" className={`${scrolled ? "nav-scrolled" : ""} ${hidden ? "nav-hidden" : ""}`}>
-      <div className="logo">OneStop Wholesale</div>
+      <div className="logo-container">
+        <img src="/logo.jpg" alt="OneStop Wholesale" className="navbar-logo-img" />
+        <div className="logo">OneStop Wholesale</div>
+      </div>
 
       <div className={`nav-links ${menuActive ? "active" : ""}`} id="nav-links">
         <ul>
