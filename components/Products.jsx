@@ -6,14 +6,14 @@ import { useCart } from "./CartContext";
 import toast from "react-hot-toast";
 
 const productsData = [
-  { id: 1, name: "Polo Shirt 1", price: 950, img: "/poloshirt.jpg", orderUrl: "Polo+Shirt+1" },
-  { id: 2, name: "Polo Shirt 2", price: 950, img: "/poloshirt2.jpg", orderUrl: "Polo+Shirt+2" },
-  { id: 3, name: "Polo Shirt 3", price: 950, img: "/poloshirt3.jpg", orderUrl: "Polo+Shirt+3" },
-  { id: 4, name: "Checkered Shirt 1", price: 3000, img: "/shirt.jpg", orderUrl: "Checkered+Shirt+1" },
-  { id: 5, name: "Checkered Shirt 2", price: 3000, img: "/shirt2.jpg", orderUrl: "Checkered+Shirt+2" },
-  { id: 6, name: "Checkered Shirt 3", price: 3000, img: "/shirt3.jpg", orderUrl: "Checkered+Shirt+3" },
-  { id: 7, name: "Female Handbag 1", price: 2800, img: "/Bag.jpg", orderUrl: "Female+Handbag+1" },
-  { id: 8, name: "Female Handbag 2", price: 2800, img: "/Bag2.jpg", orderUrl: "Female+Handbag+2" },
+  { id: 1, name: "Premium Cotton Polo - Navy", price: 950, img: "/poloshirt.jpg", orderUrl: "Premium+Cotton+Polo+-+Navy" },
+  { id: 2, name: "Classic Fit Polo - Crimson Red", price: 950, img: "/poloshirt2.jpg", orderUrl: "Classic+Fit+Polo+-+Crimson+Red" },
+  { id: 3, name: "Signature Polo - Azure Blue", price: 950, img: "/poloshirt3.jpg", orderUrl: "Signature+Polo+-+Azure+Blue" },
+  { id: 4, name: "Oxford Checkered Dress Shirt", price: 3000, img: "/shirt.jpg", orderUrl: "Oxford+Checkered+Dress+Shirt" },
+  { id: 5, name: "Grand Canal Plaid Shirt", price: 3000, img: "/shirt2.jpg", orderUrl: "Grand+Canal+Plaid+Shirt" },
+  { id: 6, name: "Stripe & Checkered Casual Wear", price: 3000, img: "/shirt3.jpg", orderUrl: "Stripe+&+Checkered+Casual+Wear" },
+  { id: 7, name: "Milano Elegant Leather Bag", price: 2800, img: "/Bag.jpg", orderUrl: "Milano+Elegant+Leather+Bag" },
+  { id: 8, name: "Parisian Chic Tote Bag", price: 2800, img: "/Bag2.jpg", orderUrl: "Parisian+Chic+Tote+Bag" },
 ];
 
 export default function Products({ searchQuery }) {
